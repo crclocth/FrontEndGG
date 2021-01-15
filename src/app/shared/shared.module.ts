@@ -8,6 +8,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
   declarations: [NavBarComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [NavBarComponent]
 })
 export class SharedModule { }
