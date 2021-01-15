@@ -8,13 +8,21 @@ import { SectorComponent } from './components/sector/sector.component';
 import { SetComponent } from './components/set/set.component';
 import { SubSetComponent } from './components/sub-set/sub-set.component';
 import { StickersComponent } from './components/stickers/stickers.component';
+import { SharedModule } from '../shared/shared.module';
 
+const Components = [
+  AdminComponent, GeneralComponent,
+  SectorComponent, SetComponent,
+  SubSetComponent, StickersComponent
+]
 
 @NgModule({
-  declarations: [AdminComponent, GeneralComponent, SectorComponent, SetComponent, SubSetComponent, StickersComponent],
+  declarations: [...Components],
   imports: [
     CommonModule,
-    AdminRoutingModule
-  ]
+    AdminRoutingModule,
+    SharedModule
+  ],
+  exports: [...Components]
 })
 export class AdminModule { }
