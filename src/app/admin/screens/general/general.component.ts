@@ -15,9 +15,7 @@ export class GeneralComponent implements OnInit {
   }
 
   setOption(num: number) {
-    console.log(this.opcion);
     this.opcion = num;
-    console.log(this.opcion);
   }
 
 }
