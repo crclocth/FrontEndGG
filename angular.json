@@ -125,5 +125,8 @@
       }
     }
   },
-  "defaultProject": "FrontEndGG"
+  "defaultProject": "FrontEndGG",
+  "cli": {
+    "analytics": false
+  }
 }
