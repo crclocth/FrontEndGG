@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sector.component.less']
 })
 export class SectorComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit(): void {
