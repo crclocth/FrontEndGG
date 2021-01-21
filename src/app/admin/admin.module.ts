@@ -26,6 +26,8 @@ const Components = [
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
+    CoreModule,
+    FormsModule,
   ],
   exports: [...Components]
 })
