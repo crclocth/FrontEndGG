@@ -17,25 +17,26 @@
         <div class="col mr-0 ml-0 p-0">
             <!---<app-sector></app-sector>----->
             <div class="container-fluid">
-                <div class="card">
+                <div class="card-body">
                     <div class="row mt-2">
                         <div class="col-4 text-center mt-2" style="color: #939393;">
-                            Nombre
+                            Nombre:
                         </div>
                         <div class="col-8  mt-1">
-                            <input type="text" style="background-color: white; line-height: 50%; color: #939393;" class="btn btn-white text-dark" placeholder="escriba nombre">
+                            <input type="text" style="background-color: white; line-height: 50%; color: #939393;" class="btn btn-white text-dark" placeholder="Escriba nombre">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-4 text-center mt-2" style="color: #939393;">
-                            Etiqueta
+                            Etiqueta:
                         </div>
                         <div class="col-8  mt-1">
                             <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
                                 <div id='formulario' [ngClass]="{lleno: mensaje}">
                                     <div class="input-group">
                                         <div class="input-group-prepend"></div>
-                                        <input type="text" style="background-color: white;line-height: 80%; color: #939393;" class="btn btn-white text-dark" placeholder="Seleccione etiqueta o escriba etiqueta">
+                                        <input id="etiqueta" name="etiqueta" type="text" style="background-color: white;line-height: 80%; color: #939393;" class="btn btn-white text-dark form-control" formControlName="etiqueta" placeholder="Seleccione etiqueta o escriba etiqueta" aria-label="etiqueta"
+                                            aria-describedby="basic-addon1">
                                     </div>
                                 </div>
                             </form>

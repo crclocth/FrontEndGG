@@ -24,14 +24,29 @@ export class SubSetComponent implements OnInit {
   }
   createFormGroup() {
     return new FormGroup({
-      nombreperro: new FormControl('', [Validators.required]),
-      nombreduenno: new FormControl('', [Validators.required]),
-      razaa: new FormControl('',[Validators.required]),
+      etiqueta: new FormControl('', [Validators.required]),
+      
     });
   }
   onSubmit(){
     this.mensaje="Datos completados correctamente";
     this.isDivVisible=true;
   }
-
+  get etiqueta() { return this.checkoutForm.get('etiqueta')?.value;}
+  public postDogs(){ 
+    let datosForm:  = {
+      etiqueta: this.checkoutForm.get('etiqueta')?.value,
+      
+    }
+    console.log(datosForm);
+    try {
+      console.log('hola');
+      //this.DogsService.poblar(datosForm);
+      console.log( this.DogsService.poblar(datosForm));
+      alert('Su perro se agrego correctamente');
+    } catch (error) {
+      alert('Su perro no pudo ser agregado');
+      
+    }
+  }
 }
