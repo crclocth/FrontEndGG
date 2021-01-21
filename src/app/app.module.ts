@@ -19,8 +19,6 @@ import { AdminModule } from './admin/admin.module';
     CoreModule,
     ToastrModule.forRoot(),
     AdminModule,
-    
-    
   ],
   providers: [],
   bootstrap: [AppComponent]
