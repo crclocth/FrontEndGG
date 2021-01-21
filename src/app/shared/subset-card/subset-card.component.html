@@ -1,0 +1,47 @@
+<div class="col mr-0 ml-0 p-0">
+    <div class="container-fluid">
+        <div class="card-body">
+            <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+                <div id='formulario' [ngClass]="{lleno: mensaje}">
+                    <div class="row mt-2">
+                        <div class="col-4 text-center mt-3" style="color: #939393;">
+                            <label for="subsetName">Nombre:</label>
+                        </div>
+                        <div class="col-8  mt-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <input id="subsetName" name="subsetName" type="text" class="form-control btn btn-white text-dark mt-2 " formControlName="subsetName" style="background-color: white; line-height: 50%; color: #939393;" placeholder="Escriba nombre" aria-label="Nombre" aria-describedby="basic-addon1">
+                                    <div id='mensaje'>
+                                        <small id="emailHelp" class="form-text text-muted" *ngIf="(subsetName.dirty || subsetName.touched) && subsetName.invalid && subsetName.errors.required"> Requerido </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 text-center mt-3" style="color: #939393;">
+                            <label for="sticker">Etiqueta:</label>
+                        </div>
+                        <div class="col-8  mt-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <input id="sticker" name="sticker" type="text" class="form-control btn btn-white btn-lg text-dark mt-2 " formControlName="sticker" style="background-color: white; line-height: 50%; color: #939393; font-size: 15px;" placeholder="Seleccione o escriba" aria-label="Nombre"
+                                        aria-describedby="basic-addon1">
+                                    <div id='mensaje'>
+                                        <small id="emailHelp" class="form-text text-muted" *ngIf="(sticker.dirty || sticker.touched) && sticker.invalid && sticker.errors.required"> Requerido </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="row mt-4 mb-2">
+
+    <div class="col-md-6 text-center">
+        <button type="button" style='line-height: 100%; background-color:#82C83C' class="btn mx-auto" [disabled]="!checkoutForm.valid" (click)="postSubset(); enviar()">ENVIAR</button>
+    </div>
+</div>
