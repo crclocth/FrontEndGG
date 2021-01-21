@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Sector } from 'src/app/core/models/sector-model';
 import { NotificationService } from 'src/app/core/services/notification/notification.service';
+import { SectorService } from 'src/app/core/services/sector/sector.service';
 
 @Component({
   selector: 'app-sector',
@@ -14,7 +16,8 @@ export class SectorComponent implements OnInit {
   isDivVisible = false;
 
   constructor(
-    private notificationServices: NotificationService
+    private notificationServices: NotificationService,
+    private SectorService: SectorService
   ) {
     this.checkoutForm = this.createFormGroup();
   }
@@ -36,10 +39,10 @@ export class SectorComponent implements OnInit {
   get nombreSector() { return this.checkoutForm.get('nombreSector')?.value;}
 
   public postSector(){ 
-    let datosForm: string = this.checkoutForm.get('nombreSector')?.value;
+    let datosForm: Sector = this.checkoutForm.get('nombreSector')?.value;
     console.log(datosForm);
     try {
-      // this.sectorServices.poblarSectores(datosForm);
+      this.SectorService.addSector(datosForm);
       this.notificationServices.success('Su sector ha sido agregado!');
     } catch (error) {
       this.notificationServices.error('Error al agregar su sector');
