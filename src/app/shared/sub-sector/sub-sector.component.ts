@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Subset } from 'src/app/core/models/subset-model';
+import { Validators, FormControl, FormGroup } from '@angular/forms';
 import { SubsetService } from 'src/app/core/services/subset/subset.service';
-import { Subset } from '../../../core/models/subset-model';
 
 @Component({
-  selector: 'app-sub-set',
-  templateUrl: './sub-set.component.html',
-  styleUrls: ['./sub-set.component.less']
+  selector: 'app-sub-sector',
+  templateUrl: './sub-sector.component.html',
+  styleUrls: ['./sub-sector.component.less']
 })
-export class SubSetComponent implements OnInit {
+export class SubSectorComponent implements OnInit {
 
   public opcion: number = 2;
   checkoutForm: FormGroup;
@@ -54,4 +54,5 @@ export class SubSetComponent implements OnInit {
       
     }
   }
+
 }

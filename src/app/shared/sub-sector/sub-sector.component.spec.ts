@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SubSetComponent } from './sub-set.component';
+import { SubSectorComponent } from './sub-sector.component';
 
-describe('SubSetComponent', () => {
-  let component: SubSetComponent;
-  let fixture: ComponentFixture<SubSetComponent>;
+describe('SubSectorComponent', () => {
+  let component: SubSectorComponent;
+  let fixture: ComponentFixture<SubSectorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SubSetComponent ]
+      declarations: [ SubSectorComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SubSetComponent);
+    fixture = TestBed.createComponent(SubSectorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
