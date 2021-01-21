@@ -6,7 +6,6 @@ import { AdminComponent } from './admin.component';
 import { GeneralComponent } from './screens/general/general.component';
 import { SectorComponent } from './components/sector/sector.component';
 import { SetComponent } from './components/set/set.component';
-import { SubSetComponent } from './components/sub-set/sub-set.component';
 import { StickersComponent } from './components/stickers/stickers.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,7 +14,7 @@ import { CoreModule } from '../core/core.module';
 const Components = [
   AdminComponent, GeneralComponent,
   SectorComponent, SetComponent,
-  SubSetComponent, StickersComponent
+ StickersComponent
 ]
 
 @NgModule({
