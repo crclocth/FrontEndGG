@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { SubsetService } from 'src/app/core/services/subset/subset.service';
+import { Subset } from '../../../core/models/subset-model';
 
 @Component({
   selector: 'app-sub-set',
@@ -12,8 +14,11 @@ export class SubSetComponent implements OnInit {
   checkoutForm: FormGroup;
   mensaje:string="";
   isDivVisible = false;
-  constructor() {
+  constructor(
+    private SubsetService: SubsetService,
+  ) {
     this.checkoutForm = this.createFormGroup();
+    
    }
 
   ngOnInit(): void {
@@ -33,8 +38,8 @@ export class SubSetComponent implements OnInit {
     this.isDivVisible=true;
   }
   get etiqueta() { return this.checkoutForm.get('etiqueta')?.value;}
-  public postDogs(){ 
-    let datosForm:  = {
+  public postSubset(){ 
+    let datosForm: Subset  = {
       etiqueta: this.checkoutForm.get('etiqueta')?.value,
       
     }
@@ -42,7 +47,7 @@ export class SubSetComponent implements OnInit {
     try {
       console.log('hola');
       //this.DogsService.poblar(datosForm);
-      console.log( this.DogsService.poblar(datosForm));
+      console.log( this.SubsetService.addSubset(datosForm));
       alert('Su perro se agrego correctamente');
     } catch (error) {
       alert('Su perro no pudo ser agregado');
