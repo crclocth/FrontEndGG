@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubSetComponent implements OnInit {
 
+  public opcion: number = 2;
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  setOptionn(num: number) {
+    this.opcion = num;
+  }
+
 
 }
