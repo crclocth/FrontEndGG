@@ -1,8 +1,8 @@
 <app-nav-bar></app-nav-bar>
 <div class="container-fluid" [ngSwitch]="opcion">
-    <div class="row" *ngSwitchCase="2">
+    <div class="row" *ngSwitchCase="'2'">
         <button type="button" class="btn btn-primary" style="background-color: white; color: black;">
-            <div class="row" (click)="setOption(1)">
+            <div class="row" (click)="setOption('1')">
                 <div class="col-11 mr-0 ml-5" style="color: #939393;">
                     Agregar conjunto
                 </div>
@@ -13,9 +13,9 @@
         </button>
 
     </div>
-    <div class="row p-0 ml-0 mr-0" *ngSwitchCase="1" style="background-color: white;">
+    <div class="row p-0 ml-0 mr-0" *ngSwitchCase="'1'" style="background-color: white;">
         <div class="col mr-0 ml-0 p-0">
-            <app-sector></app-sector>
+            <app-sector (enviar)="opcion = $event"></app-sector>
         </div>
     </div>
 </div>

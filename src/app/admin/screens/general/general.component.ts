@@ -7,14 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GeneralComponent implements OnInit {
 
-  public opcion: number = 2;
+  public opcion: string = '2';
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  setOption(num: number) {
+  setOption(num: string) {
     this.opcion = num;
   }
 
