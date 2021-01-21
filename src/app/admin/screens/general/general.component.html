@@ -18,6 +18,6 @@
             <app-sector (switch)="switchOp($event)"></app-sector>
         </div>
     </div>
+    <app-set *ngFor="let sector of sectors" [sector]="sector"></app-set>
 </div>
-<app-sub-sector></app-sub-sector>
 <!--<div class="overflow-auto bg-info">Esto Funciona, ya lo probé</div>-->

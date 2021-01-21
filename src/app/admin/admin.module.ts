@@ -14,7 +14,7 @@ import { CoreModule } from '../core/core.module';
 const Components = [
   AdminComponent, GeneralComponent,
   SectorComponent, SetComponent,
- StickersComponent
+  StickersComponent
 ]
 
 @NgModule({
@@ -25,8 +25,8 @@ const Components = [
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
-    CoreModule,
     FormsModule,
+    CoreModule
   ],
   exports: [...Components]
 })

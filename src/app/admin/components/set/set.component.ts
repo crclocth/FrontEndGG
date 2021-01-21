@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Sector } from 'src/app/core/models/sector-model';
 
 @Component({
   selector: 'app-set',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SetComponent implements OnInit {
 
+  @Input() sector: string;
+  
   constructor() { }
 
   ngOnInit(): void {

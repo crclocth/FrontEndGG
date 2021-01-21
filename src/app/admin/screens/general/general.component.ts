@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Sector } from 'src/app/core/models/sector-model';
+import { SectorService } from 'src/app/core/services/sector/sector.service';
 
 @Component({
   selector: 'app-general',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GeneralComponent implements OnInit {
 
+  public sectors: Sector[];
   public opcion: string = '2';
 
-  constructor() { }
+  constructor(
+    private sectorServices: SectorService
+  ) { 
+    this.sectors = this.getSectors();
+  }
 
   ngOnInit(): void {
   }
@@ -20,6 +27,10 @@ export class GeneralComponent implements OnInit {
   
   switchOp(op: string){
     this.opcion = op;
+  }
+
+  getSectors(): Sector[]{
+    return this.sectorServices.getAllSectors();
   }
 
 
