@@ -9,7 +9,7 @@ import { SectorService } from 'src/app/core/services/sector/sector.service';
 })
 export class GeneralComponent implements OnInit {
 
-  public sectors: Sector[];
+  public sectors: Sector[] = [];
   public opcion: string = '2';
 
   constructor(
