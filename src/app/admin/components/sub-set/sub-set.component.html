@@ -1,1 +1,46 @@
-<p>sub-set works!</p>
+<div class="conainer-fluid" [ngSwitch]="opcion">
+    <div class="row" *ngSwitchCase="2">
+        <button type="button" class="btn btn-primary" style="background-color: white; color: black;">
+            <div class="row" (click)="setOptionn(1)">
+                <div class="col-11 mr-0 ml-5" style="color: #939393;">
+                    Agregar Subconjunto
+                </div>
+                <div class="col-1">
+                    <i class="fas fa-plus-circle" style="color: #939393;"></i>
+                </div>
+            </div>
+        </button>
+
+    </div>
+    <div class="row p-0 ml-0 mr-0" *ngSwitchCase="1" style="background-color: white;">
+        <div class="col mr-0 ml-0 p-0">
+            <!---<app-sector></app-sector>----->
+            <div class="conainer-fluid">
+                <div class="card">
+                    <div class="row mt-2">
+                        <div class="col-4 text-center mt-2" style="color: #939393;">
+                            Nombre
+                        </div>
+                        <div class="col-8  mt-1">
+                            <input type="text" style="background-color: blue;line-height: 80%; color: black;" class="btn btn-white text-dark">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 text-center mt-2" style="color: #939393;">
+                            Etiqueta
+                        </div>
+                        <div class="col-8  mt-1">
+                            <input type="text" style="background-color: blue;line-height: 80%; color: black;" class="btn btn-white text-dark">
+                        </div>
+                    </div>
+                    <div class="row mt-4 mb-2">
+
+                        <div class="col-md-6 text-center">
+                            <button type="button" style='line-height: 100%; background-color:#82C83C' class="btn mx-auto">ENVIAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
