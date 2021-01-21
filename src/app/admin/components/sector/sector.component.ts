@@ -1,6 +1,7 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { EventEmitter } from 'events';
+
+
 import { Sector } from 'src/app/core/models/sector-model';
 import { NotificationService } from 'src/app/core/services/notification/notification.service';
 import { SectorService } from 'src/app/core/services/sector/sector.service';
@@ -12,7 +13,7 @@ import { SectorService } from 'src/app/core/services/sector/sector.service';
 })
 export class SectorComponent implements OnInit {
 
-  @Output() switch = new EventEmitter();
+  @Output() switch: EventEmitter<string>;
 
   checkoutForm: FormGroup;
   mensaje:string="";
@@ -23,6 +24,7 @@ export class SectorComponent implements OnInit {
     private SectorService: SectorService
   ) {
     this.checkoutForm = this.createFormGroup();
+    this.switch = new EventEmitter<string>();
   }
 
   ngOnInit() {
@@ -45,7 +47,6 @@ export class SectorComponent implements OnInit {
     console.log(datosForm);
     try {
       this.SectorService.addSector(datosForm);
-      this.enviar();
       this.notificationServices.success('Su sector ha sido agregado!');
     } catch (error) {
       this.notificationServices.error('Error al agregar su sector');
