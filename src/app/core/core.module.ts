@@ -3,8 +3,13 @@ import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { NotificationService } from './services/notification/notification.service';
 import { SubsetService } from './services/subset/subset.service';
+import { SectorService } from './services/sector/sector.service';
 
-
+const Services = [
+  NotificationService,
+  SectorService,
+  SubsetService
+];
 
 
 @NgModule({
@@ -17,6 +22,7 @@ import { SubsetService } from './services/subset/subset.service';
       positionClass: 'toast-top-right'
     }),
   ],
+  providers: [...Services]
  
 })
 export class CoreModule { }
