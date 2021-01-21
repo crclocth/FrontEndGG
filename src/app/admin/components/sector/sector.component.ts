@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NotificationService } from 'src/app/core/services/notification.service';
 
 @Component({
   selector: 'app-sector',
@@ -12,7 +13,9 @@ export class SectorComponent implements OnInit {
   mensaje:string="";
   isDivVisible = false;
 
-  constructor() {
+  constructor(
+    private notificationServices: NotificationService
+  ) {
     this.checkoutForm = this.createFormGroup();
   }
 
@@ -37,10 +40,9 @@ export class SectorComponent implements OnInit {
     console.log(datosForm);
     try {
       // this.sectorServices.poblarSectores(datosForm);
-      alert('Su sector se agrego correctamente');
+      this.notificationServices.success('Su sector ha sido agregado!');
     } catch (error) {
-      alert('Su sector no pudo ser agregado');
-      
+      this.notificationServices.error('Error al agregar su sector');
     }
   }
 }
