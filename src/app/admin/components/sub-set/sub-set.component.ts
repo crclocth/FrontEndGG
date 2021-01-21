@@ -33,7 +33,7 @@ export class SubSetComponent implements OnInit {
     this.isDivVisible=true;
   }
   get etiqueta() { return this.checkoutForm.get('etiqueta')?.value;}
-  public postDogs(){ 
+  /*public postDogs(){ 
     let datosForm:  = {
       etiqueta: this.checkoutForm.get('etiqueta')?.value,
       
@@ -48,5 +48,5 @@ export class SubSetComponent implements OnInit {
       alert('Su perro no pudo ser agregado');
       
     }
-  }
+  }*/
 }
