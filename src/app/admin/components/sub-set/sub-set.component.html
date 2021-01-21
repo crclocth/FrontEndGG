@@ -1,6 +1,7 @@
-<div class="conainer-fluid" [ngSwitch]="opcion">
-    <div class="row" *ngSwitchCase="2">
-        <button type="button" class="btn btn-primary" style="background-color: white; color: black;">
+<div class="container-fluid" [ngSwitch]="opcion">
+    <div class="card">
+        <div class="row" *ngSwitchCase="2">
+            <button type="button" class="btn btn-primary" style="background-color: white; color: black;">
             <div class="row" (click)="setOptionn(1)">
                 <div class="col-11 mr-0 ml-5" style="color: #939393;">
                     Agregar Subconjunto
@@ -10,19 +11,19 @@
                 </div>
             </div>
         </button>
-
+        </div>
     </div>
     <div class="row p-0 ml-0 mr-0" *ngSwitchCase="1" style="background-color: white;">
         <div class="col mr-0 ml-0 p-0">
             <!---<app-sector></app-sector>----->
-            <div class="conainer-fluid">
+            <div class="container-fluid">
                 <div class="card">
                     <div class="row mt-2">
                         <div class="col-4 text-center mt-2" style="color: #939393;">
                             Nombre
                         </div>
                         <div class="col-8  mt-1">
-                            <input type="text" style="background-color: blue;line-height: 80%; color: black;" class="btn btn-white text-dark">
+                            <input type="text" style="background-color: white; line-height: 50%; color: #939393;" class="btn btn-white text-dark" placeholder="escriba nombre">
                         </div>
                     </div>
                     <div class="row">
@@ -30,7 +31,15 @@
                             Etiqueta
                         </div>
                         <div class="col-8  mt-1">
-                            <input type="text" style="background-color: blue;line-height: 80%; color: black;" class="btn btn-white text-dark">
+                            <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+                                <div id='formulario' [ngClass]="{lleno: mensaje}">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend"></div>
+                                        <input type="text" style="background-color: white;line-height: 80%; color: #939393;" class="btn btn-white text-dark" placeholder="Seleccione etiqueta o escriba etiqueta">
+                                    </div>
+                                </div>
+                            </form>
+
                         </div>
                     </div>
                     <div class="row mt-4 mb-2">
