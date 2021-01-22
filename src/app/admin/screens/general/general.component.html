@@ -18,7 +18,7 @@
         </div>
     </div>
 </div>
-<app-set *ngFor="let sector of sectors" [sector]="sector"></app-set>
+<app-set *ngFor="let sector of sectors" [sector]="sector" (click)="selectedSector(sector)"></app-set>
 <app-sub-sector *ngIf="(sectors.length)"></app-sub-sector>
 
 

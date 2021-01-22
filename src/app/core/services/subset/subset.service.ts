@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Sector } from '../../models/sector-model';
 import { Subset } from '../../models/subset-model';
 
 @Injectable({
@@ -6,16 +7,19 @@ import { Subset } from '../../models/subset-model';
 })
 export class SubsetService {
 
-  private subsetsArray: Subset[] = [];
+  private sectorSelected: Sector;
 
   constructor() { }
 
   public addSubset (subset: Subset){
-    this.subsetsArray.push(subset);
-    return this.subsetsArray;
+    console.log(this.sectorSelected);
+    this.sectorSelected.subsets.push(subset);
+    return subset;
   }
 
-  public getAllSubsets(): Subset[]{
-    return this.subsetsArray;
+  public getSector(sector: Sector){
+    this.sectorSelected = sector;
+    console.log (this.sectorSelected);
   }
+
 }

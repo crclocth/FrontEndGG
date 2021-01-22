@@ -18,6 +18,7 @@ export class SectorComponent implements OnInit {
   checkoutForm: FormGroup;
   mensaje:string="";
   isDivVisible = false;
+  newSector: Sector = null;
 
   constructor(
     private notificationServices: NotificationService,
@@ -43,10 +44,10 @@ export class SectorComponent implements OnInit {
   get nombreSector() { return this.checkoutForm.get('nombreSector')?.value;}
 
   public postSector(){ 
-    let datosForm: Sector = this.checkoutForm.get('nombreSector')?.value;
-    console.log(datosForm);
+    let datosForm: string = this.checkoutForm.get('nombreSector')?.value;
+    this.newSector = {name: datosForm, subsets: []}
     try {
-      this.SectorService.addSector(datosForm);
+      this.SectorService.addSector(this.newSector);
       this.notificationServices.success('Su sector ha sido agregado!');
     } catch (error) {
       this.notificationServices.error('Error al agregar su sector');
