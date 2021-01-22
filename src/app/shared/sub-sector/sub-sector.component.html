@@ -1,19 +1,22 @@
 <div class="container-fluid" [ngSwitch]="opcion">
     <div class="card">
         <div class="row" *ngSwitchCase="'2'">
-            <button type="button" class="btn btn-primary" style="background-color: white; color: black;">
-            <div class="row" (click)="setOptionn('1')">
-                <div class="col-11 mr-0 ml-5" style="color: #939393;">
-                    Agregar Subconjunto
+            <button type="button" class="btn ttn btn-primary" style="background-color: white; color: black;">
+                <div class="row" (click)="setOptionn('1')">
+                    <div class="col-11 mr-0 ml-5" style="color: #939393;">
+                        Agregar Subconjunto
+                    </div>
+                    <div class="col-1">
+                        <i class="fas fa-plus-circle" style="color: #939393;"></i>
+                    </div>
                 </div>
-                <div class="col-1">
-                    <i class="fas fa-plus-circle" style="color: #939393;"></i>
-                </div>
-            </div>
             </button>
         </div>
     </div>
     <div class="row p-0 ml-0 mr-0" *ngSwitchCase="'1'" style="background-color: white;">
-        <app-subset-card (switch)="switchOp($event)"></app-subset-card>
+        <div class="col mr-0 ml-0 p-0">
+            <app-subset-card (switch)="switchOp($event)"></app-subset-card>
+        </div>
     </div>
 </div>
+<app-subset-set *ngFor="let subsector of subsectors" [subsector]="subsector"></app-subset-set>

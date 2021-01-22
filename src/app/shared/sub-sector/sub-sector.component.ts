@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Subset } from 'src/app/core/models/subset-model';
+import { SubsetService } from 'src/app/core/services/subset/subset.service';
 
 
 @Component({
@@ -8,9 +10,13 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class SubSectorComponent implements OnInit {
   
+  public subsectors: Subset[] = [];
   public opcion: string = "2";
   
-  constructor() {
+  constructor(
+    private subsetServices: SubsetService
+  ) {
+    this.subsectors = this.getSubSectors();
    }
 
   ngOnInit(): void {
@@ -22,6 +28,7 @@ export class SubSectorComponent implements OnInit {
   switchOp(op: string){
     this.opcion = op;
   }
-  
-
+  getSubSectors(): Subset[]{
+    return this.subsetServices.getAllSubsets();
+  }
 }
