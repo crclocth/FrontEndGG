@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Sector } from 'src/app/core/models/sector-model';
 import { SectorService } from 'src/app/core/services/sector/sector.service';
+import { SubsetService } from 'src/app/core/services/subset/subset.service';
 
 @Component({
   selector: 'app-general',
@@ -11,11 +12,14 @@ export class GeneralComponent implements OnInit {
 
   public sectors: Sector[] = [];
   public opcion: string = '2';
+  sectorSelected: Sector;
 
   constructor(
-    private sectorServices: SectorService
+    private sectorServices: SectorService,
+    public subsetServices: SubsetService
   ) { 
     this.sectors = this.getSectors();
+    this.sectorSelected = null;
   }
 
   ngOnInit(): void {
@@ -33,5 +37,10 @@ export class GeneralComponent implements OnInit {
     return this.sectorServices.getAllSectors();
   }
 
+  public selectedSector (sector: Sector): void {
+    this.sectorSelected = sector;
+    this.subsetServices.getSector(this.sectorSelected);
+    console.log (this.sectorSelected);
+  }
 
 }
