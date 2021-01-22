@@ -49,17 +49,15 @@ export class SubsetCardComponent implements OnInit {
   get subsetName() { return this.checkoutForm.get('subsetName')?.value;}
   
   public postSubset(){ 
-    let datosForm: Subset  = {
+    let datosForm: Subset = {
       sticker: this.checkoutForm.get('sticker')?.value,
       subsetName: this.checkoutForm.get('subsetName')?.value,
     }
-    console.log(datosForm);
     try {
       console.log( this.SubsetService.addSubset(datosForm));
       this.NotificationService.success('Su Subsector se agrego correctamente');
     } catch (error) {
       this.NotificationService.error('Su Subsector no pudo ser agregado');
-      
     }
   }
 

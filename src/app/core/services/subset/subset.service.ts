@@ -12,14 +12,21 @@ export class SubsetService {
   constructor() { }
 
   public addSubset (subset: Subset){
-    console.log(this.sectorSelected);
     this.sectorSelected.subsets.push(subset);
     return subset;
   }
 
   public getSector(sector: Sector){
     this.sectorSelected = sector;
-    console.log (this.sectorSelected);
+  }
+
+  public getAllSubsets (): Subset [] {
+    if (this.sectorSelected)
+    {
+      return this.sectorSelected.subsets;
+    }
+    else
+    return null;
   }
 
 }

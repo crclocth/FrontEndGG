@@ -12,6 +12,13 @@ export class SectorService {
 
   public addSector (sector: Sector){
     sector.subsets = [];
+    for(let i=0; i<this.sectorsArray.length; i++)
+    {
+      if (sector.name == this.sectorsArray[i].name)
+      {
+        return null;
+      }
+    }
     this.sectorsArray.push(sector);
     console.log("agregado", this.sectorsArray);
     return this.sectorsArray;
