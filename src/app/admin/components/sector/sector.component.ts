@@ -47,14 +47,10 @@ export class SectorComponent implements OnInit {
     let datosForm: string = this.checkoutForm.get('nombreSector')?.value;
     this.newSector = {name: datosForm, subsets: []}
     try {
-      if (this.SectorService.addSector(this.newSector)==null)
-      {
-        this.notificationServices.error('Ya existe este Sector!');
-      }
-      else{
+      if (this.SectorService.addSector(this.newSector) == null)
+        { this.notificationServices.error('Ya existe este Sector!'); }
       this.SectorService.addSector(this.newSector);
       this.notificationServices.success('Su sector ha sido agregado!');
-      }
     } catch (error) {
       this.notificationServices.error('Error al agregar su sector');
     }
