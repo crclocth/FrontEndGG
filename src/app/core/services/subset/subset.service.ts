@@ -35,6 +35,7 @@ export class SubsetService {
 
   public getSector(sector: Sector){
     this.sectorSelected = sector;
+    console.log(this.sectorSelected);
   }
 
   public getAllSubsets (): Subset [] {
@@ -42,5 +43,5 @@ export class SubsetService {
       { return this.sectorSelected.subsets; }
     return null;
   }
-
+  
 }
