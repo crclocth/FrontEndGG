@@ -7,12 +7,29 @@ import { Subset } from '../../models/subset-model';
 })
 export class SubsetService {
 
-  private sectorSelected: Sector;
+  public subSetsArray: Subset[] = [];
+  public sectorSelected: Sector;
 
   constructor() { }
 
-  public addSubset (subset: Subset){
-    this.sectorSelected.subsets.push(subset);
+  public random() {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    for (let i = 0; i < 9; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result
+  }
+
+  public addSubset(subset: Subset) {
+    subset._id = this.random();
+    for(let i=0; i<this.subSetsArray.length; i++){
+      if (subset.subsetName == this.subSetsArray[i].subsetName)
+        { return null; }
+    }
+    this.subSetsArray.push(subset);
+    this.sectorSelected.subsets = this.subSetsArray;
     return subset;
   }
 
@@ -22,10 +39,7 @@ export class SubsetService {
 
   public getAllSubsets (): Subset [] {
     if (this.sectorSelected)
-    {
-      return this.sectorSelected.subsets;
-    }
-    else
+      { return this.sectorSelected.subsets; }
     return null;
   }
 

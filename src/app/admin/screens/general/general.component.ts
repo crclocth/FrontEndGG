@@ -40,7 +40,6 @@ export class GeneralComponent implements OnInit {
   public selectedSector (sector: Sector): void {
     this.sectorSelected = sector;
     this.subsetServices.getSector(this.sectorSelected);
-    console.log (this.sectorSelected);
   }
 
 }

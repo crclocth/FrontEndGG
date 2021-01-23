@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SubsetSetComponent } from './subset-set.component';
+import { SubsetComponent } from './subset.component';
 
-describe('SubsetSetComponent', () => {
-  let component: SubsetSetComponent;
-  let fixture: ComponentFixture<SubsetSetComponent>;
+describe('SubsetComponent', () => {
+  let component: SubsetComponent;
+  let fixture: ComponentFixture<SubsetComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SubsetSetComponent ]
+      declarations: [ SubsetComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SubsetSetComponent);
+    fixture = TestBed.createComponent(SubsetComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

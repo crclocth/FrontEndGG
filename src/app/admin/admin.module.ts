@@ -10,6 +10,7 @@ import { StickersComponent } from './components/stickers/stickers.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from '../core/core.module';
+import { SubsetComponent } from './components/subset/subset.component';
 
 const Components = [
   AdminComponent, GeneralComponent,
@@ -18,7 +19,7 @@ const Components = [
 ]
 
 @NgModule({
-  declarations: [...Components],
+  declarations: [...Components, SubsetComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

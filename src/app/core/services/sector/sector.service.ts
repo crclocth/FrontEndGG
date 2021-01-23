@@ -5,6 +5,7 @@ import { Sector } from '../../models/sector-model';
   providedIn: 'root'
 })
 export class SectorService {
+
   private sectorsArray: Sector[] = [];
   public sectorSelected: Sector;
 
@@ -23,12 +24,9 @@ export class SectorService {
   public addSector (sector: Sector){
     sector.subsets = [];
     sector._id = this.random();
-    for(let i=0; i<this.sectorsArray.length; i++)
-    {
+    for(let i=0; i<this.sectorsArray.length; i++){
       if (sector.name == this.sectorsArray[i].name)
-      {
-        return null;
-      }
+        { return null; }
     }
     this.sectorsArray.push(sector);
     console.log("agregado", this.sectorsArray);
