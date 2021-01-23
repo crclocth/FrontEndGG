@@ -40,14 +40,17 @@
     </div>
 </div>
 
-<div class="row">
+<div class="container-fluid">
+    <div class="row justify-content-center mt-2 mb-2 ">
+        <div class="col-md-3 txt-center btn">
+            <button type="button " class="btn " style='line-height: 100%; background-color:#82C83C; width: 162px; Height: 31px' (click)="postSubset(); enviar()" [disabled]="!checkoutForm.valid ">ENVIAR</button>
+        </div>
+    </div>
+</div>
 
-    <div class="col-md-6 txt-center" type="button" style='line-height: 100%; background-color:#82C83C' class="btn" (click)="postSubset(); enviar()">
-        ENVIAR
+<!--------
+<div class="row mt-2 mb-2 ">
+    <div class="col-md-6 text-center ">
+        <button type="button " style='line-height: 100%; background-color:#82C83C' class="btn " [disabled]="!checkoutForm.valid " (click)="postSubset(); enviar() ">ENVIAR</button>
     </div>
-</div>
-<div class="row mt-2 mb-2">
-    <div class="col-md-6 text-center">
-        <button type="button" style='line-height: 100%; background-color:#82C83C' class="btn" [disabled]="!checkoutForm.valid" (click)="postSubset(); enviar()">ENVIAR</button>
-    </div>
-</div>
+</div>---->
