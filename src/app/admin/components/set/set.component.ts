@@ -8,7 +8,7 @@ import { Sector } from 'src/app/core/models/sector-model';
 })
 export class SetComponent implements OnInit {
 
-  @Input() sector: string;
+  @Input() sector: Sector;
   
   constructor() { }
 
