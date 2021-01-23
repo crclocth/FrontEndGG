@@ -29,7 +29,7 @@ export class SubsetService {
         { return null; }
     }
     this.subSetsArray.push(subset);
-    this.sectorSelected.subsets = this.subSetsArray;
+    this.sectorSelected.subsets.push(subset);
     return subset;
   }
 
@@ -39,9 +39,7 @@ export class SubsetService {
   }
 
   public getAllSubsets (): Subset [] {
-    if (this.sectorSelected)
-      { return this.sectorSelected.subsets; }
-    return null;
+    return this.subSetsArray;
   }
-  
+
 }
