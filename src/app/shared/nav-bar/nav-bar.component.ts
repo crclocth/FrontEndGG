@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Node } from 'src/app/core/models/node-model';
 import { Sector } from 'src/app/core/models/sector-model';
+import { NodeService } from 'src/app/core/services/node/node.service';
 import { SectorService } from 'src/app/core/services/sector/sector.service';
 
 @Component({
@@ -10,13 +13,15 @@ import { SectorService } from 'src/app/core/services/sector/sector.service';
 export class NavBarComponent implements OnInit {
 
   public sectors: Sector[] = [];
-  public tamano: number;
+  public nodes: Node[] = [];
 
   constructor(
-    private sectorServices: SectorService
+    private sectorServices: SectorService,
+    private nodesServices: NodeService,
+    private router: Router
   ) { 
     this.sectors = this.getSectors();
-    this.tamano = this.getTamano();
+    this.nodes = this.getNodes();
   }
 
   ngOnInit(): void {
@@ -26,8 +31,12 @@ export class NavBarComponent implements OnInit {
     return this.sectorServices.getAllSectors();
   }
 
-  getTamano(): number{
-    return this.sectorServices.getTamanio();
+  getNodes(): Node[]{
+    return this.nodesServices.getAllNodes();
+  }
+
+  getRuta(): string{
+    return this.router.url;
   }
 
 }
