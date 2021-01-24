@@ -5,11 +5,12 @@ import { SubSectorComponent } from './sub-sector/sub-sector.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SubsetCardComponent } from './subset-card/subset-card.component';
 import { SubsetSetComponent } from './subset-set/subset-set.component';
+import { StickerCardComponent } from './sticker-card/sticker-card.component';
 
 
 
 @NgModule({
-  declarations: [NavBarComponent, SubSectorComponent, SubsetCardComponent, SubsetSetComponent,],
+  declarations: [NavBarComponent, SubSectorComponent, SubsetCardComponent, SubsetSetComponent, StickerCardComponent,],
   imports: [
     CommonModule,
     FormsModule,
@@ -17,6 +18,6 @@ import { SubsetSetComponent } from './subset-set/subset-set.component';
     
 
   ],
-  exports: [NavBarComponent, SubSectorComponent,SubsetCardComponent, SubsetSetComponent]
+  exports: [NavBarComponent, SubSectorComponent,SubsetCardComponent, SubsetSetComponent, StickerCardComponent]
 })
 export class SharedModule { }
