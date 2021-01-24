@@ -4,11 +4,13 @@ import { ToastrModule } from 'ngx-toastr';
 import { NotificationService } from './services/notification/notification.service';
 import { SubsetService } from './services/subset/subset.service';
 import { SectorService } from './services/sector/sector.service';
+import { NodeService } from './services/node/node.service';
 
 const Services = [
   NotificationService,
   SectorService,
-  SubsetService
+  SubsetService,
+  NodeService
 ];
 
 
