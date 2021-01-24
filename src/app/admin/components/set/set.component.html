@@ -1,6 +1,6 @@
 <div class="accordion accordion-flush" id="accordionFlushExample">
     <div class="accordion-item text-white">
-        <h2 class="accordion-header text-center" id="flush-heading{{sector._id}}" style="background-color: #07425E;">
+        <h2 class="accordion-header text-center" id="flush-heading{{sector._id}}" data-toggle="collapse" style="background-color: #07425E;">
             <div class="row">
                 <div class="col-10">
                     <a class="accordion-button collapsed text-white" style="text-decoration: none;font-size: 17px;" type="button" data-bs-toggle="collapse" href="#flush-collapse{{sector._id}}" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -15,8 +15,8 @@
             </div>
         </h2>
         <div id="flush-collapse{{sector._id}}" class="accordion-collapse collapse text-dark" style="background-color: white;" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body mt-0">
-                <app-subset  *ngFor="let subset of subSets" [subset]="subset"></app-subset>
+            <div class="accordion-body mt-0" data-bs-parent="#accordionFlushExample">
+                <app-subset *ngFor="let subset of getSubSets()" [subset]="subset"></app-subset>
             </div>
         </div>
     </div>
