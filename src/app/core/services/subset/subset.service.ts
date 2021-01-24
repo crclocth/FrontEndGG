@@ -10,7 +10,9 @@ export class SubsetService {
   public subSetsArray: Subset[] = [];
   public sectorSelected: Sector;
 
-  constructor() { }
+  constructor() { 
+    this.sectorSelected = null;
+  }
 
   public random() {
     let result = '';
@@ -39,7 +41,15 @@ export class SubsetService {
   }
 
   public getAllSubsets (): Subset [] {
-    return this.subSetsArray;
+    if (this.sectorSelected === null)
+    {
+      return this.subSetsArray;
+    }
+    else
+    {
+      console.log(this.sectorSelected.subsets);
+      return this.sectorSelected.subsets;
+    }
   }
 
   public getTamanio(): number{
