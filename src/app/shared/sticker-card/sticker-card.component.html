@@ -1,31 +1,12 @@
 <div class="row">
-    <div class="col-3"></div>
-    <div class="col-9">
-        <div class="card">
-            <div class="mb-4 mx-2" style="font-size: 65%">
+    <div class="col-3 "></div>
+    <div class="col-9 ">
+        <div class="card ">
+            <div class="mb-4 mx-2 " style="font-size: 65% ">
                 Seleccione una opción o cree una
             </div>
-
-
+            <button type="button " class="btn ">Primary</button>
+            <button></button>
         </div>
     </div>
 </div>
-<div class="color">
-    <span id="hex">
-        #e74c3c
-    </span>
-    <button onclick="getNewColor()">get new Color</button>
-</div>
-
-<script type="text/javascript">
-    function getNewColor() {
-        var symbols, color;
-        symbols = "0123456789ABCDEF"
-        color = "#";
-        for (var i = 0; i < 6; i++) {
-            color = color + symbols[Math.floor(Math.random() * 16)];
-        }
-        document.body.style.background = color;
-        document.getElementById("hex").innerHTML = color;
-    }
-</script>
