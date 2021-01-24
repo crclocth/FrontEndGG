@@ -42,4 +42,8 @@ export class SubsetService {
     return this.subSetsArray;
   }
 
+  public getTamanio(): number{
+    return this.subSetsArray.length;
+  }
+
 }

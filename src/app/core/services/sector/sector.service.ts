@@ -36,4 +36,8 @@ export class SectorService {
   public getAllSectors(): Sector[]{
     return this.sectorsArray;
   }
+
+  public getTamanio(): number{
+    return this.sectorsArray.length;
+  }
 }
