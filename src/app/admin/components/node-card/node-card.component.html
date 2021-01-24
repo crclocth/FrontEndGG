@@ -1,1 +1,18 @@
-<p>node-card works!</p>
+<div class="card text-white  mt-1 mb-3" style="height: 37px;">
+    <div class="card-header" style="background-color: #555555;">{{node.nodeName}}</div>
+    <div class="card-body" style="background-color: #9F9F9F;padding: 0.2rem;">
+        <ul class="list-group list-group-flush" *ngFor="let sensor of sensors">
+            <div [ngSwitch]="sensor.sensorState">
+                <div *ngSwitchCase="'warning'">
+                    <li class="list-group-item mt-" style="height: 37px;background-color: #EEB72B;">Cras justo odio</li>
+                </div>
+                <div *ngSwitchCase="'perfect'">
+                    <li class="list-group-item mt-1" style="height: 37px;background-color: #5DAF1C;">Cras justo odio</li>
+                </div>
+                <div *ngSwitchCase="'danger'">
+                    <li class="list-group-item mt-1" style="height: 37px;background-color: #FF0000;">Cras justo odio</li>
+                </div>
+            </div>
+          </ul>
+    </div>
+</div>
