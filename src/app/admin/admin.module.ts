@@ -12,7 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from '../core/core.module';
 import { SubsetComponent } from './components/subset/subset.component';
 import { NodesComponent } from './screens/nodes/nodes.component';
-import { NodeCardComponent } from './components/node-card/node-card/node-card.component';
+import { NodeCardComponent } from './components/node-card/node-card.component';
 
 const Components = [
   AdminComponent, GeneralComponent,
