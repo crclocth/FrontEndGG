@@ -16,15 +16,16 @@ export class SetComponent implements OnInit {
   public subSets: Subset[];
   
   constructor(
-    private subsetService: SubsetService,
+    public subsetService: SubsetService,
   ) {
-    this.subSets = this.getSubSets();
+    this.subSets = this.subsetService.getAllSubsets();
   }
 
   ngOnInit(): void {
   }
 
   getSubSets(): Subset[]{
+    console.log(this.subsetService.getAllSubsets());
     return this.subsetService.getAllSubsets();
   }
 
