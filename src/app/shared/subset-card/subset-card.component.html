@@ -25,15 +25,20 @@
                         <div class="col-9  mt-1">
                             <div class="input-group">
                                 <!--<div class="input-group-prepend">--->
-                                <input id="sticker" name="sticker" type="text" class="form-control b text-dark mt-2 " formControlName="sticker" style="background-color: white;font-size: 86%; line-height: 15%; color: #939393;" placeholder="Seleccione etiqueta o escriba etiqueta" aria-label="Nombre"
-                                    aria-describedby="basic-addon1">
+                                <input id="sticker" name="sticker" type="button text " class="form-control btn b text-dark mt-2 " formControlName="sticker" style="background-color: white;font-size: 86%; line-height: 15%; color: #939393;" placeholder="Seleccione etiqueta o escriba etiqueta"
+                                    aria-label="Nombre" aria-describedby="basic-addon1">
                                 <div id='mensaje'>
-                                    <small id="emailHelp" class="form-text text-muted" *ngIf="(sticker.dirty || sticker.touched) && sticker.invalid && sticker.errors.required"> Requerido </small>
+                                    <small id="emailHelp" class="form-text text-muted" *ngIf="(sticker.dirty || sticker.touched) && sticker.invalid && sticker.errors.required"></small>
                                 </div>
-                                <!---</div>---->
                             </div>
+                            <!---</div>--->
+
+                        </div>
+                        <div *ngIf="sticker.touched">
+                            <app-sticker-card></app-sticker-card>
                         </div>
                     </div>
+
                 </div>
             </form>
         </div>

@@ -45,7 +45,8 @@ export class SubsetCardComponent implements OnInit {
     this.switch.emit('2');
   }
   
-  get sticker() { return this.checkoutForm.get('sticker')?.value;}
+  get sticker() { return this.checkoutForm.get('sticker');}
+  //get sticker() { return this.checkoutForm.get('sticker')?.value;}
   get subsetName() { return this.checkoutForm.get('subsetName')?.value;}
   
   public postSubset(){ 

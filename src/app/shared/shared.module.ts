@@ -7,13 +7,17 @@ import { SubsetCardComponent } from './subset-card/subset-card.component';
 
 
 
+
 @NgModule({
+
   declarations: [NavBarComponent, SubSectorComponent, SubsetCardComponent],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
   ],
+
   exports: [NavBarComponent, SubSectorComponent,SubsetCardComponent]
+
 })
 export class SharedModule { }
