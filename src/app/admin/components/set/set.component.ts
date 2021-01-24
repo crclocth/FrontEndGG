@@ -14,10 +14,9 @@ export class SetComponent implements OnInit {
   @Input() sector: Sector = null;
 
   public subSets: Subset[];
-  public subsetLength: number;
   
   constructor(
-    private subsetService: SubsetService
+    private subsetService: SubsetService,
   ) {
     this.subSets = this.getSubSets();
   }
