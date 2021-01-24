@@ -25,16 +25,16 @@
                         <div class="col-9  mt-1">
                             <div class="input-group">
                                 <!--<div class="input-group-prepend">--->
-                                <input id="sticker" name="sticker" type="button text " class="form-control btn b text-dark mt-2 " formControlName="sticker" style="background-color: white;font-size: 86%; line-height: 15%; color: #939393;" placeholder="Seleccione etiqueta o escriba etiqueta"
-                                    aria-label="Nombre" aria-describedby="basic-addon1">
+                                <input id="sticker" name="sticker" type="button text " class="form-control btn b text-dark mt-2 " formControlName="sticker" style="font-size: 86%; line-height: 15%; color: #939393; " placeholder="Seleccione etiqueta o escriba etiqueta " aria-label="Nombre "
+                                    aria-describedby="basic-addon1 ">
                                 <div id='mensaje'>
-                                    <small id="emailHelp" class="form-text text-muted" *ngIf="(sticker.dirty || sticker.touched) && sticker.invalid && sticker.errors.required"></small>
+                                    <small id="emailHelp " class="form-text text-muted " *ngIf="(sticker.dirty || sticker.touched) && sticker.invalid && sticker.errors.required "></small>
                                 </div>
                             </div>
                             <!---</div>--->
 
                         </div>
-                        <div *ngIf="sticker.touched">
+                        <div *ngIf="sticker.touched ">
                             <app-sticker-card></app-sticker-card>
                         </div>
                     </div>
@@ -45,10 +45,10 @@
     </div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid ">
     <div class="row justify-content-center mt-2 mb-2 ">
-        <div class="col-md-3 txt-center btn">
-            <button type="button " class="btn " style='line-height: 100%; background-color:#82C83C; width: 162px; Height: 31px' (click)="postSubset(); enviar()" [disabled]="!checkoutForm.valid ">ENVIAR</button>
+        <div class="col-md-3 txt-center btn ">
+            <button type="button " class="btn " style='line-height: 100%; background-color:#82C83C; width: 162px; Height: 31px' (click)="postSubset(); enviar() " [disabled]="!checkoutForm.valid ">ENVIAR</button>
         </div>
     </div>
 </div>
