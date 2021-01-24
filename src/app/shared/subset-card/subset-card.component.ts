@@ -56,6 +56,7 @@ export class SubsetCardComponent implements OnInit {
     }
     try {
       console.log( this.SubsetService.addSubset(datosForm));
+      console.log(this.SubsetService.getAllSubsets());
       this.NotificationService.success('Su Subsector se agrego correctamente');
     } catch (error) {
       this.NotificationService.error('Su Subsector no pudo ser agregado');
