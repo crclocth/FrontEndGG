@@ -32,13 +32,12 @@
                                 </div>
                             </div>
                             <!---</div>--->
-
                         </div>
-                        <div *ngIf="sticker.touched ">
+                        <div *ngIf="sticker.dirty && sticker.touched"></div>
+                        <div *ngIf="sticker.touched && !sticker.dirty">
                             <app-sticker-card></app-sticker-card>
                         </div>
                     </div>
-
                 </div>
             </form>
         </div>
