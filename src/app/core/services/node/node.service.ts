@@ -27,7 +27,6 @@ export class NodeService {
         { return null; }
     }
     this.nodesArray.push(node);
-    console.log("agregado", this.nodesArray);
     return this.nodesArray;
   }
 

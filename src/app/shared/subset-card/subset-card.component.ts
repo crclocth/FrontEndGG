@@ -16,6 +16,7 @@ export class SubsetCardComponent implements OnInit {
   checkoutForm: FormGroup;
   mensaje:string="";
   isDivVisible = false;
+  newSubset: Subset = null;
 
   constructor(
     private SubsetService: SubsetService,
@@ -45,18 +46,20 @@ export class SubsetCardComponent implements OnInit {
     this.switch.emit('2');
   }
   
-  get sticker() { return this.checkoutForm.get('sticker');}
+  get sticker() { return this.checkoutForm.get('sticker')?.value;}
   //get sticker() { return this.checkoutForm.get('sticker')?.value;}
   get subsetName() { return this.checkoutForm.get('subsetName')?.value;}
   
   public postSubset(){ 
     let datosForm: Subset = {
       sticker: this.checkoutForm.get('sticker')?.value,
-      subsetName: this.checkoutForm.get('subsetName')?.value,
+      subsetName:  this.checkoutForm.get('subsetName')?.value,
     }
+    this.newSubset = datosForm;
     try {
-      console.log( this.SubsetService.addSubset(datosForm));
-      console.log(this.SubsetService.getAllSubsets());
+      if (this.SubsetService.addSubset(this.newSubset) == null)
+        { this.NotificationService.error('Ya existe este Sub sector!'); return;}
+      this.SubsetService.addSubset(datosForm);
       this.NotificationService.success('Su Subsector se agrego correctamente');
     } catch (error) {
       this.NotificationService.error('Su Subsector no pudo ser agregado');

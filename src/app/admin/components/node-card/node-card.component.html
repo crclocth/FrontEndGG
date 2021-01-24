@@ -4,13 +4,13 @@
         <ul class="list-group list-group-flush" *ngFor="let sensor of sensors">
             <div [ngSwitch]="sensor.sensorState">
                 <div *ngSwitchCase="'warning'">
-                    <li class="list-group-item mt-" style="height: 37px;background-color: #EEB72B;">Cras justo odio</li>
+                    <li class="list-group-item mt-" style="height: 37px;background-color: #EEB72B;">{{sensor.sensorName}}</li>
                 </div>
                 <div *ngSwitchCase="'perfect'">
-                    <li class="list-group-item mt-1" style="height: 37px;background-color: #5DAF1C;">Cras justo odio</li>
+                    <li class="list-group-item mt-1" style="height: 37px;background-color: #5DAF1C;">{{sensor.sensorName}}</li>
                 </div>
                 <div *ngSwitchCase="'danger'">
-                    <li class="list-group-item mt-1" style="height: 37px;background-color: #FF0000;">Cras justo odio</li>
+                    <li class="list-group-item mt-1" style="height: 37px;background-color: #FF0000;">{{sensor.sensorName}}</li>
                 </div>
             </div>
           </ul>

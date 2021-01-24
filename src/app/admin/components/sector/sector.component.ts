@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { exit } from 'process';
 
 
 import { Sector } from 'src/app/core/models/sector-model';
@@ -48,7 +49,7 @@ export class SectorComponent implements OnInit {
     this.newSector = {name: datosForm, subsets: []}
     try {
       if (this.SectorService.addSector(this.newSector) == null)
-        { this.notificationServices.error('Ya existe este Sector!'); }
+        { this.notificationServices.error('Ya existe este Sector!'); return;}
       this.SectorService.addSector(this.newSector);
       this.notificationServices.success('Su sector ha sido agregado!');
     } catch (error) {
