@@ -5,6 +5,27 @@
             <div class="mb-4 mx-2" style="font-size: 65%">
                 Seleccione una opción o cree una
             </div>
+
+
         </div>
     </div>
 </div>
+<div class="color">
+    <span id="hex">
+        #e74c3c
+    </span>
+    <button onclick="getNewColor()">get new Color</button>
+</div>
+
+<script type="text/javascript">
+    function getNewColor() {
+        var symbols, color;
+        symbols = "0123456789ABCDEF"
+        color = "#";
+        for (var i = 0; i < 6; i++) {
+            color = color + symbols[Math.floor(Math.random() * 16)];
+        }
+        document.body.style.background = color;
+        document.getElementById("hex").innerHTML = color;
+    }
+</script>
