@@ -42,14 +42,9 @@ export class SubsetService {
 
   public getAllSubsets (): Subset [] {
     if (this.sectorSelected === null)
-    {
-      return this.subSetsArray;
-    }
-    else
-    {
-      console.log(this.sectorSelected.subsets);
-      return this.sectorSelected.subsets;
-    }
+      { return this.subSetsArray; }
+    console.log(this.sectorSelected.subsets);
+    return this.sectorSelected.subsets;
   }
 
   public getTamanio(): number{

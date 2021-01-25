@@ -13,7 +13,8 @@ export class NodeCardComponent implements OnInit {
   
   public sensors: Sensor[] = [];
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit(): void {
   }

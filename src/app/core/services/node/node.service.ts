@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Node } from '../../models/node-model';
+import { SensorService } from '../sensor/sensor.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,9 @@ export class NodeService {
 
   public nodesArray: Node[] = [];
   
-  constructor() { }
+  constructor(
+    private sensorService: SensorService
+  ) { }
 
   public random() {
     let result = '';
@@ -22,6 +25,7 @@ export class NodeService {
 
   public addNode (node: Node){
     node._id = this.random();
+    node.sensors = [];
     for(let i=0; i<this.nodesArray.length; i++){
       if (node.nodeName == this.nodesArray[i].nodeName)
         { return null; }
