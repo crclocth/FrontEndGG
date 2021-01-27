@@ -13,12 +13,12 @@ export class SetComponent implements OnInit {
 
   @Input() sector: Sector = null;
 
-  public subSets: Subset[];
+  public subSets: Subset[] = [];
   
   constructor(
     public subsetService: SubsetService,
   ) {
-    this.subSets = this.subsetService.getAllSubsets();
+    this.subSets = this.getSubSets();
   }
 
   ngOnInit(): void {
