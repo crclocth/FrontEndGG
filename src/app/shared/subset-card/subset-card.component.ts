@@ -1,8 +1,9 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Subset } from 'src/app/core/models/subset-model';
 import { SubsetService } from 'src/app/core/services/subset/subset.service';
 import { NotificationService } from '../../core/services/notification/notification.service';
+import { Sector } from '../../core/models/sector-model';
 
 @Component({
   selector: 'app-subset-card',
@@ -13,6 +14,7 @@ export class SubsetCardComponent implements OnInit {
 
   @Output() switch: EventEmitter<string>;
   @Output() subsetEmitter: EventEmitter<Subset>;
+  @Input() sector: Sector;
   public opcion: number = 2;
   checkoutForm: FormGroup;
   mensaje:string="";
@@ -56,8 +58,10 @@ export class SubsetCardComponent implements OnInit {
     let datosForm: Subset = {
       sticker: this.checkoutForm.get('sticker')?.value,
       subsetName:  this.checkoutForm.get('subsetName')?.value,
+      sectorId: this.sector._id
     }
     this.newSubset = datosForm;
+
     try {
       if (this.SubsetService.addSubset(this.newSubset) == null)
         { this.NotificationService.error('Ya existe este Sub sector!'); return;}

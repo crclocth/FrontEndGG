@@ -34,8 +34,12 @@ export class SetComponent implements OnInit, OnChanges{
     console.log(this.subsetService.getAllSubsets());
     return this.subsetService.getAllSubsets();
   }
+
   addNewSubset(subset: Subset):void{
-    this.subSets.push(subset);
+    if (this.sector._id === subset.sectorId){
+      this.subSets.push(subset);
+      console.log(subset.sectorId);
+    }
   }
 
 }
