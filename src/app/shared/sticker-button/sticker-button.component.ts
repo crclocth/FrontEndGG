@@ -10,6 +10,7 @@ export class StickerButtonComponent implements OnInit {
   constructor() { }
   public color: string; 
   public colorretornado: string;
+  
 
   ngOnInit(): void {
   }
@@ -22,6 +23,11 @@ export class StickerButtonComponent implements OnInit {
     return this.colorretornado;
   }
 
+  colorr = this.randomcolor();
+}
+
+  
+
   //public buttonBgColor = ' #FF0000'
   //this.buttonBgColor= '#c20018'
-}
+
