@@ -1,6 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Subset } from 'src/app/core/models/subset-model';
 import { SubsetService } from 'src/app/core/services/subset/subset.service';
+import { Sector } from '../../core/models/sector-model';
 
 
 @Component({
@@ -13,6 +14,7 @@ export class SubSectorComponent implements OnInit {
   @Output() subsetEmitter: EventEmitter<Subset>;
   public subsectors: Subset[] = [];
   public opcion: string = "2";
+  @Input() sector: Sector;
   
   constructor(
     private subsetServices: SubsetService

@@ -31,7 +31,7 @@ export class SubsetService {
         { return null; }
     }
     //this.subSetsArray.push(subset);
-    this.sectorSelected.subsets.push(subset);
+    //this.sectorSelected.subsets.push(subset);
     return subset;
   }
 
