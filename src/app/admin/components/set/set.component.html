@@ -16,8 +16,9 @@
         </h2>
         <div id="flush-collapse{{sector._id}}" class="accordion-collapse collapse text-dark" style="background-color: white;" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body mt-0" data-bs-parent="#accordionFlushExample">
-                <app-subset *ngFor="let subset of getSubSets()" [subset]="subset"></app-subset>
+                <app-subset *ngFor="let subset of subSets" [subset]="subset"></app-subset>
             </div>
+            <app-sub-sector></app-sub-sector>
         </div>
     </div>
 </div>
