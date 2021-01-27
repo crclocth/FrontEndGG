@@ -12,6 +12,7 @@ import { NotificationService } from '../../core/services/notification/notificati
 export class SubsetCardComponent implements OnInit {
 
   @Output() switch: EventEmitter<string>;
+  @Output() subsetEmitter: EventEmitter<Subset>;
   public opcion: number = 2;
   checkoutForm: FormGroup;
   mensaje:string="";
@@ -24,6 +25,7 @@ export class SubsetCardComponent implements OnInit {
   ) {
     this.checkoutForm = this.createFormGroup();
     this.switch = new EventEmitter<string>();
+    this.subsetEmitter = new EventEmitter<Subset>();
    }
 
   ngOnInit(): void {
@@ -61,6 +63,7 @@ export class SubsetCardComponent implements OnInit {
         { this.NotificationService.error('Ya existe este Sub sector!'); return;}
       this.SubsetService.addSubset(datosForm);
       this.NotificationService.success('Su Subsector se agrego correctamente');
+      this.subsetEmitter.emit(this.newSubset);
     } catch (error) {
       this.NotificationService.error('Su Subsector no pudo ser agregado');
     }

@@ -18,7 +18,7 @@
             <div class="accordion-body mt-0" data-bs-parent="#accordionFlushExample">
                 <app-subset *ngFor="let subset of subSets" [subset]="subset"></app-subset>
             </div>
-            <app-sub-sector></app-sub-sector>
+            <app-sub-sector (subsetEmitter)="addNewSubset($event)"></app-sub-sector>
         </div>
     </div>
 </div>

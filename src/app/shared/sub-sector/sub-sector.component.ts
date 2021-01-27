@@ -9,7 +9,8 @@ import { SubsetService } from 'src/app/core/services/subset/subset.service';
   styleUrls: ['./sub-sector.component.less']
 })
 export class SubSectorComponent implements OnInit {
-  
+
+  @Output() subsetEmitter: EventEmitter<Subset>;
   public subsectors: Subset[] = [];
   public opcion: string = "2";
   
@@ -17,6 +18,7 @@ export class SubSectorComponent implements OnInit {
     private subsetServices: SubsetService
   ) {
     this.subsectors = this.getSubSectors();
+    this.subsetEmitter = new EventEmitter<Subset>();
    }
 
   ngOnInit(): void {
@@ -30,5 +32,8 @@ export class SubSectorComponent implements OnInit {
   }
   getSubSectors(): Subset[]{
     return this.subsetServices.getAllSubsets();
+  }
+  emitSubset(subset: Subset): void{
+    this.subsetEmitter.emit(subset);
   }
 }
