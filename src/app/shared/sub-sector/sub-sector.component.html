@@ -15,7 +15,7 @@
     </div>
     <div class="row p-0 ml-0 mr-0" *ngSwitchCase="'1'" style="background-color: white;">
         <div class="col mr-0 ml-0 p-0">
-            <app-subset-card (switch)="switchOp($event)"></app-subset-card>
+            <app-subset-card (switch)="switchOp($event) " (subsetEmitter)="emitSubset($event)"></app-subset-card>
         </div>
     </div>
 </div>
