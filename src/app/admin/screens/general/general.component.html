@@ -19,7 +19,7 @@
     </div>
 </div>
 <app-set *ngFor="let sector of sectors" [sector]="sector" (click)="selectedSector(sector)" (click)="(this.subsetServices.subSetsArray = sectorSelected.subsets)"></app-set>
-<app-sub-sector *ngIf="(sectors.length)"></app-sub-sector>
+
 
 
 <!--<div class="overflow-auto bg-info">Esto Funciona, ya lo probé</div>-->
