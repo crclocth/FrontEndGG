@@ -30,7 +30,7 @@ export class SubsetService {
       if (subset.subsetName == this.subSetsArray[i].subsetName)
         { return null; }
     }
-    this.subSetsArray.push(subset);
+    //this.subSetsArray.push(subset);
     this.sectorSelected.subsets.push(subset);
     return subset;
   }
