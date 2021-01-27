@@ -1,21 +1,21 @@
-<div class="card text-white  mt-1 mb-3" style="height: 37px;">
+<div class="card text-white  mt-1 mb-3">
     <div class="card-header" style="background-color: #555555;">
         <div class="row">
-            <div class="col-10">{{node.nodeName}}</div>
+            <div class="col-10 mt-1">{{node.nodeName}}</div>
             <div class="col-2 circulo" *ngIf="node.sensors.length">{{node.sensors.length}}</div>
         </div>
     </div>
     <div class="card-body" style="background-color: #9F9F9F;padding: 0.2rem;">
-        <ul class="list-group list-group-flush" *ngFor="let sensor of sensors">
+        <ul class="list-group list-group-flush" *ngFor="let sensor of node.sensors">
             <div [ngSwitch]="sensor.sensorState">
                 <div *ngSwitchCase="'warning'">
-                    <li class="list-group-item mt-" style="height: 37px;background-color: #EEB72B;">{{sensor.sensorName}}</li>
+                    <li class="list-group-item mt-1" style="background-color: #EEB72B;">{{sensor.sensorName}}</li>
                 </div>
                 <div *ngSwitchCase="'perfect'">
-                    <li class="list-group-item mt-1" style="height: 37px;background-color: #5DAF1C;">{{sensor.sensorName}}</li>
+                    <li class="list-group-item mt-1" style="background-color: #5DAF1C;">{{sensor.sensorName}}</li>
                 </div>
                 <div *ngSwitchCase="'danger'">
-                    <li class="list-group-item mt-1" style="height: 37px;background-color: #FF0000;">{{sensor.sensorName}}</li>
+                    <li class="list-group-item mt-1" style="background-color: #FF0000;">{{sensor.sensorName}}</li>
                 </div>
             </div>
           </ul>
