@@ -15,8 +15,11 @@
             </div>
         </h2>
         <div id="flush-collapse{{sector._id}}" class="accordion-collapse collapse text-dark" style="background-color: white;" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body mt-0" data-bs-parent="#accordionFlushExample">
-                <app-subset *ngFor="let subset of subSets" [subset]="subset"></app-subset>
+            <div class="accordion-body mt-0" data-bs-parent="#accordionFlushExample" *ngFor="let sticker of stickerService.arraySticker">
+                <app-stickers *ngIf="sector._id == sticker._idSector" [stickerrr]="sticker.sticker"></app-stickers>
+                <ng-container *ngFor="let subset of subSets">
+                    <app-subset *ngIf="sector._id == subset.sectorId && subset.sticker == sticker.sticker" [subset]="subset"></app-subset>
+                </ng-container>
             </div>
             <app-sub-sector (subsetEmitter)="addNewSubset($event)" [sector]="sector"></app-sub-sector>
         </div>

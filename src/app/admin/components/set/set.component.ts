@@ -2,6 +2,7 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Sector } from 'src/app/core/models/sector-model';
 import { Subset } from 'src/app/core/models/subset-model';
 import { SectorService } from 'src/app/core/services/sector/sector.service';
+import { StickerService } from 'src/app/core/services/sticker/sticker.service';
 import { SubsetService } from 'src/app/core/services/subset/subset.service';
 
 @Component({
@@ -13,16 +14,18 @@ export class SetComponent implements OnInit, OnChanges{
 
   @Input() sector: Sector = null;
 
-
+  public sectorSelected: string;
   public subSets: Subset[] = [];
   
   constructor(
     public subsetService: SubsetService,
+    public stickerService: StickerService,
   ) {
     this.subSets = this.getSubSets();
   }
 
   ngOnInit(): void {
+    this.sectorSelected = this.sector._id;
   }
   
   ngOnChanges():void{
