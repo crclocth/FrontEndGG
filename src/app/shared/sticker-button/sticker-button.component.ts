@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Sticker } from 'src/app/core/models/sticker-model';
+import { StickerService } from 'src/app/core/services/sticker/sticker.service';
 
 @Component({
   selector: 'app-sticker-button',
@@ -7,8 +9,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class StickerButtonComponent implements OnInit {
 
-  @Input() miarrai:string;
-  constructor() { }
+  @Input() public sendSticker: Sticker;
+  constructor(public stickerService: StickerService) { 
+  }
   public color: string; 
   public colorretornado: string;
   
