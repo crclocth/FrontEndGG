@@ -2,10 +2,16 @@
     <div class="col-3 "></div>
     <div class="col-9 ">
         <div class="card ">
-            <div class="mb-4 mx-2 " style="font-size: 65% ">
+            <div class="mb-4 " style="font-size: 65% ">
                 Seleccione una opción o cree una
             </div>
-            <app-sticker-button></app-sticker-button>
+            <div *ngFor="let sticker of stickerService.arrayStickerOfSector">
+                <div *ngIf="insector._id == sticker._idSector">
+                    <app-sticker-button [sendSticker]="sticker"></app-sticker-button>
+                </div>
+            </div>
+            <!---<app-sticker-button *ngFor="let sticker of stickerService.arrayStickerOfSector" [sendSticker]="sticker"></app-sticker-button>
+            <button (click)="stickerService.arraiSector(insector)"></button>---->
         </div>
     </div>
 </div>
