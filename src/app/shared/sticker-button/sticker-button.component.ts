@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sticker-button',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StickerButtonComponent implements OnInit {
 
+  @Input() miarrai:string;
   constructor() { }
   public color: string; 
   public colorretornado: string;
@@ -25,9 +26,6 @@ export class StickerButtonComponent implements OnInit {
 
   colorr = this.randomcolor();
 }
-
-  
-
   //public buttonBgColor = ' #FF0000'
   //this.buttonBgColor= '#c20018'
 

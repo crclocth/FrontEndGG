@@ -4,6 +4,9 @@ import { Subset } from 'src/app/core/models/subset-model';
 import { SubsetService } from 'src/app/core/services/subset/subset.service';
 import { NotificationService } from '../../core/services/notification/notification.service';
 import { Sector } from '../../core/models/sector-model';
+import { StickerService } from 'src/app/core/services/sticker/sticker.service';
+import { Sticker } from 'src/app/core/models/sticker-model';
+
 
 @Component({
   selector: 'app-subset-card',
@@ -20,10 +23,12 @@ export class SubsetCardComponent implements OnInit {
   mensaje:string="";
   isDivVisible = false;
   newSubset: Subset = null;
+  public newSticker: Sticker;
 
   constructor(
     private SubsetService: SubsetService,
     private NotificationService: NotificationService,
+    private StickerService: StickerService,
   ) {
     this.checkoutForm = this.createFormGroup();
     this.switch = new EventEmitter<string>();
@@ -56,22 +61,26 @@ export class SubsetCardComponent implements OnInit {
   
   public postSubset(){ 
     let datosForm: Subset = {
-      sticker: this.checkoutForm.get('sticker')?.value,
+      sticker: this.sticker.value,
+      //sticker: this.checkoutForm.get('sticker')?.value,
       subsetName:  this.checkoutForm.get('subsetName')?.value,
       sectorId: this.sector._id
     }
     this.newSubset = datosForm;
-
     try {
       if (this.SubsetService.addSubset(this.newSubset) == null)
         { this.NotificationService.error('Ya existe este Sub sector!'); return;}
       this.SubsetService.addSubset(datosForm);
+      
+      this.newSticker= {_idSector : datosForm.sectorId, sticker : datosForm.sticker}; 
+      this.StickerService.sendSticker(this.newSticker);
+
       this.NotificationService.success('Su Subsector se agrego correctamente');
       this.subsetEmitter.emit(this.newSubset);
     } catch (error) {
       this.NotificationService.error('Su Subsector no pudo ser agregado');
     }
+    console.log(datosForm.sticker);
   }
-
 
 }
