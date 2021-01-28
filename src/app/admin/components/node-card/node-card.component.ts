@@ -11,18 +11,11 @@ import { SensorService } from 'src/app/core/services/sensor/sensor.service';
 export class NodeCardComponent implements OnInit {
 
   @Input() node: Node;
-  @Input() sensor: Sensor[];
   
-  public sensors: Sensor[] = [];
-
   constructor() { 
-    this.sensors = this.getSensors();
   }
 
   ngOnInit(): void {
   }
 
-  getSensors(): Sensor[]{
-    return this.node.sensors;
-  }
 }
