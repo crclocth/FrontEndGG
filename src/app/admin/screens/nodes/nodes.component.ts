@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Node } from 'src/app/core/models/node-model';
 import { Sensor } from 'src/app/core/models/sensor-model';
 import { NodeService } from 'src/app/core/services/node/node.service';
@@ -11,6 +11,7 @@ import { NotificationService } from 'src/app/core/services/notification/notifica
 })
 export class NodesComponent implements OnInit {
 
+  
   public nodes: Node[] = [];
   newNode: Node = null;
 
@@ -27,7 +28,7 @@ export class NodesComponent implements OnInit {
   getNodes(): Node[]{
     return this.postNode();
   }
-
+  
   public postNode(): Node[]{ 
     let id: string = this.nodeService.random();
     this.nodes = [
