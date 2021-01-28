@@ -35,7 +35,7 @@
                         </div>
                         <div *ngIf="sticker.dirty && sticker.touched"></div>
                         <div *ngIf="sticker.touched && !sticker.dirty">
-                            <app-sticker-card></app-sticker-card>
+                            <app-sticker-card [insector]="sector"></app-sticker-card>
                         </div>
                     </div>
                 </div>
