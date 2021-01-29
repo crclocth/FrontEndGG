@@ -61,18 +61,19 @@ export class SubsetCardComponent implements OnInit {
   
   public postSubset(){ 
     let datosForm: Subset = {
-      sticker: this.sticker.value,
+      sticker: this.sticker.value.trim(),
       //sticker: this.checkoutForm.get('sticker')?.value,
       subsetName:  this.checkoutForm.get('subsetName')?.value,
       sectorId: this.sector._id
     }
     this.newSubset = datosForm;
+    this.newSubset.subsetName = this.newSubset.subsetName.trim();
     try {
       if (this.SubsetService.addSubset(this.newSubset) == null)
         { this.NotificationService.error('Ya existe este Sub sector!'); return;}
       this.SubsetService.addSubset(datosForm);
       
-      this.newSticker= {_idSector : datosForm.sectorId, sticker : datosForm.sticker}; 
+      this.newSticker= {_idSector : datosForm.sectorId, sticker : datosForm.sticker};
       this.StickerService.sendSticker(this.newSticker);
 
       this.NotificationService.success('Su Subsector se agrego correctamente');

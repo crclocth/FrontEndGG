@@ -47,6 +47,7 @@ export class SectorComponent implements OnInit {
   public postSector(){ 
     let datosForm: string = this.checkoutForm.get('nombreSector')?.value;
     this.newSector = {name: datosForm, subsets: []}
+    this.newSector.name = this.newSector.name.trim();
     try {
       if (this.SectorService.addSector(this.newSector) == null)
         { this.notificationServices.error('Ya existe este Sector!'); return;}
