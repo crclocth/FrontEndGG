@@ -2,14 +2,16 @@
     <div class="accordion-item text-white">
         <h2 class="accordion-header text-center" id="flush-heading{{sector._id}}" data-toggle="collapse" style="background-color: #07425E;">
             <div class="row">
-                <div class="col-8">
+                <div class="col-8 mt-1">
                     <a class="accordion-button collapsed text-white" style="text-decoration: none;font-size: 17px;" type="button" data-bs-toggle="collapse" href="#flush-collapse{{sector._id}}" aria-expanded="false" aria-controls="flush-collapseOne">
                         {{sector.name}}
                     </a>
                 </div>
-                <div class="col-2 mt-2">
+                <div class="col-2 mt-2 mb-2">
                     <!---<i class="fas fa-minus-circle"></i>--->
-                    <button type="button" class="btn btn-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fas fa-trash-alt" style="color: white; font-size: 130%;"></i><app-modal-delete></app-modal-delete></button>
+                    <button type="button" class="btn btn-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fas fa-minus-circle" style="color: white; font-size: 180%;"></i>
+                        <app-modal-delete></app-modal-delete>
+                    </button>
                 </div>
                 <ng-container *ngIf="subSets.length">
                     <div class="col-2 mt-3 circulo">
