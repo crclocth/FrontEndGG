@@ -6,9 +6,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SubsetCardComponent } from './subset-card/subset-card.component';
 import { StickerCardComponent } from './sticker-card/sticker-card.component';
 import { StickerButtonComponent } from './sticker-button/sticker-button.component';
+import { ModalDeleteComponent } from './modal-delete/modal-delete.component';
+import { ModalDeleteSubComponent } from './modal-delete-sub/modal-delete-sub.component';
 
 const components = [
-  NavBarComponent, SubSectorComponent, SubsetCardComponent, StickerCardComponent,StickerButtonComponent,
+  NavBarComponent, SubSectorComponent, SubsetCardComponent, StickerCardComponent,StickerButtonComponent,ModalDeleteComponent,ModalDeleteSubComponent
 ]
 
 
