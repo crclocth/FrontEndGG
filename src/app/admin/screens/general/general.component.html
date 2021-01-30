@@ -1,5 +1,5 @@
 <app-nav-bar></app-nav-bar>
-<div class="container-fluid" [ngSwitch]="opcion">
+<div class="container-fluid sticky" [ngSwitch]="opcion">
     <div class="row row-header" *ngSwitchCase="'2'">
         <button type="button" class="btn ttn text-center" style="background-color: white; color: black;">
             <div class="row mt-1 mb-1" (click)="setOption('1')">
