@@ -13,6 +13,7 @@ import { CoreModule } from '../core/core.module';
 import { SubsetComponent } from './components/subset/subset.component';
 import { NodesComponent } from './screens/nodes/nodes.component';
 import { NodeCardComponent } from './components/node-card/node-card.component';
+import { NodeProviderService } from '../core/providers/node/node-provider.service';
 
 const Components = [
   AdminComponent, GeneralComponent,
@@ -31,6 +32,9 @@ const Components = [
     ReactiveFormsModule,
     FormsModule,
     CoreModule
+  ],
+  providers: [
+    NodeProviderService
   ],
   exports: [...Components]
 })
