@@ -1,7 +1,6 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Sector } from 'src/app/core/models/sector-model';
 import { Subset } from 'src/app/core/models/subset-model';
-import { SectorService } from 'src/app/core/services/sector/sector.service';
 import { StickerService } from 'src/app/core/services/sticker/sticker.service';
 import { SubsetService } from 'src/app/core/services/subset/subset.service';
 
@@ -26,6 +25,9 @@ export class SetComponent implements OnInit, OnChanges{
 
   ngOnInit(): void {
     this.sectorSelected = this.sector._id;
+    this.subsetService.deleteSubset.subscribe( () => {
+      this.deleteSubset();
+    });
   }
   
   ngOnChanges():void{
@@ -44,5 +46,12 @@ export class SetComponent implements OnInit, OnChanges{
       console.log(subset.sectorId);
     }
   }
-
+  
+  deleteSubset(){
+    for (let i=0; i<this.subSets.length; i++){
+      if (this.subSets[i].subsetName == this.subsetService.selectedSubset.subsetName){
+          this.subSets.splice(i,1);
+      }
+    }
+  }
 }
