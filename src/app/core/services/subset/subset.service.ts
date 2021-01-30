@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Sector } from '../../models/sector-model';
 import { Subset } from '../../models/subset-model';
+import { SectorService } from '../sector/sector.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +10,13 @@ export class SubsetService {
 
   public subSetsArray: Subset[] = [];
   public sectorSelected: Sector;
-
-  constructor() { 
+  public selectedSubset: Subset;
+  
+  constructor(private sectorService: SectorService) { 
     this.sectorSelected = null;
   }
+
+  deleteSubset = new EventEmitter<any>(); 
 
   public random() {
     let result = '';
@@ -35,6 +39,11 @@ export class SubsetService {
     return subset;
   }
 
+  public subsetSelected(subset : Subset){
+    this.selectedSubset = subset;
+    console.log(this.selectedSubset);
+  }
+
   public getSector(sector: Sector){
     this.sectorSelected = sector;
     console.log(this.sectorSelected);
@@ -50,5 +59,6 @@ export class SubsetService {
   public getTamanio(): number{
     return this.subSetsArray.length;
   }
+  
 
 }

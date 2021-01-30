@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SubsetService } from '../../core/services/subset/subset.service';
 
 @Component({
   selector: 'app-modal-delete-sub',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalDeleteSubComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public subsetService: SubsetService
+  ) { }
 
   ngOnInit(): void {
   }
-
+  buttonDeletePressed(){
+    this.subsetService.deleteSubset.emit();
+  }
+  
 }

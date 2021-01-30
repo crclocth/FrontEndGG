@@ -6,7 +6,7 @@ import { Sector } from '../../models/sector-model';
 })
 export class SectorService {
 
-  private sectorsArray: Sector[] = [];
+  public sectorsArray: Sector[] = [];
   public sectorSelected: Sector;
 
   constructor() { }
