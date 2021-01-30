@@ -10,11 +10,15 @@ import { StickersComponent } from './components/stickers/stickers.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from '../core/core.module';
+import { SubsetComponent } from './components/subset/subset.component';
+import { NodesComponent } from './screens/nodes/nodes.component';
+import { NodeCardComponent } from './components/node-card/node-card.component';
 
 const Components = [
   AdminComponent, GeneralComponent,
   SectorComponent, SetComponent,
-  StickersComponent
+  StickersComponent, SubsetComponent,
+  NodesComponent, NodeCardComponent
 ]
 
 @NgModule({

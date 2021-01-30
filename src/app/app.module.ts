@@ -17,7 +17,12 @@ import { AdminModule } from './admin/admin.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      progressBar: true,
+      closeButton: true,
+      timeOut: 1500,
+      positionClass: 'toast-top-right'
+    }),
     AdminModule,
   ],
   providers: [],

@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-3 "></div>
+    <div class="col-9 ">
+        <div class="card ">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="mb-4 " style="font-size: 65% ">
+                        Seleccione una opción o cree una
+                    </div>
+                </div>
+                <div class="row">
+
+                    <ng-container *ngFor="let sticker of stickerService.arrayStickerOfSector">
+                        <ng-container class="col-6" *ngIf="insector._id == sticker._idSector">
+                            <app-sticker-button [sendSticker]="sticker"></app-sticker-button>
+                        </ng-container>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

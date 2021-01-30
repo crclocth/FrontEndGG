@@ -1,5 +1,7 @@
 export interface Subset{
-
+    
     _id?: string;
-    etiqueta: string;
+    sticker: string;
+    subsetName: string;
+    sectorId?: string;
 }
