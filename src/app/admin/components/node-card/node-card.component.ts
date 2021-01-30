@@ -13,6 +13,7 @@ export class NodeCardComponent implements OnInit {
   @Input() node: Node;
   
   constructor() { 
+    console.log(this.node);
   }
 
   ngOnInit(): void {

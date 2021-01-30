@@ -1,12 +1,12 @@
 <div class="card text-white  mt-1 mb-3">
     <div class="card-header" style="background-color: #555555;">
         <div class="row">
-            <div class="col-10 mt-1">{{node.nodeName}}</div>
+            <div class="col-10 mt-1" style="font-size: 18px;">{{node.nodeName}}</div>
             <div class="col-2 circulo" *ngIf="node.sensors.length">{{node.sensors.length}}</div>
         </div>
     </div>
     <div class="card-body" style="background-color: #9F9F9F;padding: 0.2rem;">
-        <div class="text-center">
+        <div class="text-center my-1" style="font-family: 'Raleway'; font-size: 13px; color: #6C757D;">
             Por ahora nada
         </div>
         <ul class="list-group list-group-flush" *ngFor="let sensor of node.sensors">
