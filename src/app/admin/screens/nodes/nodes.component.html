@@ -1,6 +1,36 @@
 <app-nav-bar></app-nav-bar>
 <div class="container-fluid">
-    <div class="row mt-5">
-        <app-node-card *ngFor="let node of nodes" [node]="node"></app-node-card>
+    <div class="row">
+        <div class="col-12 my-0">
+            <div class="row mb-3">
+                <button type="button" class="col-6 btn" style="background-color: #313131; color: white; border: none;" (click)="getUserNodes()">
+                    <div class="row my-4">
+                        <div class="col-6">
+                            <div class="text">Asignados</div>
+                        </div>
+                        <!-- guardar los nodos obtenidos del backend en una variable para ver si existe + de 1 -->
+                        <div class="col-6">
+                            <div class="circulo">
+                                <!-- obtener nodos libres con get y interpolar para obtener numero-->
+                                {{nodes.length}} 
+                            </div>
+                        </div>
+                    </div>
+                </button>
+                <button type="button" class="col-6 btn" style="background-color: #C4C4C4; color: black; border: none;" (click)="getFreeNodes()">
+                    <div class="row my-4">
+                        <div class="col-6">
+                            <div class="text">Libres</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="circulo">
+                                {{nodes.length}}
+                            </div>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+        <app-node-card *ngFor="let node of (nodes$ | async)" [node]="node"></app-node-card>
     </div>
 </div>
