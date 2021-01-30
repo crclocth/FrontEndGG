@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Node } from 'src/app/core/models/node-model';
 import { Sensor } from 'src/app/core/models/sensor-model';
+import { NodeProviderService } from 'src/app/core/providers/node/node-provider.service';
 import { NodeService } from 'src/app/core/services/node/node.service';
 import { NotificationService } from 'src/app/core/services/notification/notification.service';
 
@@ -12,21 +14,35 @@ import { NotificationService } from 'src/app/core/services/notification/notifica
 export class NodesComponent implements OnInit {
 
   
+  public nodes$: Observable<Node[]>;
   public nodes: Node[] = [];
+  public nodesArray: Node[] = [];
+  public nodesCount: any;
   newNode: Node = null;
 
   constructor(
     private nodeService: NodeService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private nodeProvider: NodeProviderService
   ) { 
-    this.nodes = this.getNodes();
+    this.nodes$ = this.getNodes();
   }
 
   ngOnInit(): void {
   }
 
-  getNodes(): Node[]{
-    return this.postNode();
+  getNodes(){
+    return this.nodeProvider.getAllUserNodes();
+  }
+
+  getUserNodes() {
+    console.log("hiciste click en getUserNodes");
+    return this.nodeProvider.getAllUserNodes();
+  }
+
+  getFreeNodes() {
+    console.log("hiciste click en getFreeNodes");
+    return this.nodeProvider.getAllFreeNodes();
   }
   
   public postNode(): Node[]{ 
