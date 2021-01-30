@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalDeleteComponent implements OnInit {
 
+  public opcion: string = '2';
   constructor() { }
 
   ngOnInit(): void {
+  }
+  setOption(num: string) {
+    this.opcion = num;
   }
 
 }
