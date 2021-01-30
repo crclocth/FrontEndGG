@@ -31,7 +31,6 @@ const Components = [
     FormsModule,
     ReactiveFormsModule,
     FormsModule,
-    CoreModule
   ],
   providers: [
     NodeProviderService

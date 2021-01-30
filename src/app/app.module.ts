@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { ToastrModule } from 'ngx-toastr';
 import { AdminModule } from './admin/admin.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AdminModule } from './admin/admin.module';
       positionClass: 'toast-top-right'
     }),
     AdminModule,
+    SharedModule,
     HttpClientModule,
   ],
   providers: [],
