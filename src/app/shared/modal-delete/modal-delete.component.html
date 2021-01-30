@@ -1,6 +1,7 @@
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+<div class="modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" [ngSwitch]="opcion">
+
+        <div class="modal-content" *ngSwitchCase="'2'">
             <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel">¡ELIMINAR CONJUNTO!</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -10,26 +11,27 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" style="background-color: #c2484a; color: white;" data-bs-dismiss="modal">Eliminar</button>
+                <button type="button" class="btn" style="background-color: #c2484a; color: white;" (click)="setOption('1')">Eliminar</button>
             </div>
         </div>
-    </div>
-</div>
 
-<div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+
+        <div class="modal-content" *ngSwitchCase="'1'">
             <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel">Confirmación de Eliminación</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="setOption('2')"></button>
             </div>
             <div class="modal-body">
                 ¿Está seguro de que desea ELIMINAR el Conjunto seleccionado?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn" style="background-color: #c2484a; color: white;">Eliminar</button>
+                <button type="button" class="btn btn-warning" data-bs-dismiss="modal" (click)="setOption('2')">Cancelar</button>
+                <button type="button" class="btn" style="background-color: #c2484a; color: white;" data-bs-dismiss="modal" (click)="setOption('2')">Eliminar</button>
             </div>
         </div>
+
+
+
+
     </div>
 </div>
