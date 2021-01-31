@@ -32,7 +32,7 @@ export interface Sensor{
   createdAt?: Date;
   number?: number;
   //Propios
-  nodeId: string;
-  sensorName: string;
-  sensorState: string; // "danger" : red / "warining" : yellow / "perfect" : green
+  nodeId?: string;
+  sensorName?: string;
+  sensorState?: string; // "danger" : red / "warining" : yellow / "perfect" : green
 }
