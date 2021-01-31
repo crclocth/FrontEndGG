@@ -12,11 +12,11 @@ export class StickerService {
   public arraySticker: Sticker[] =[];
   public arrayStickerOfSector: Sticker[] =[];
   constructor(public subsetService: SubsetService) { 
-
   }
   sendSticker(sticker: Sticker):void{
     for (let i=0; i<this.arraySticker.length; i++){
       if (this.arraySticker[i].sticker == sticker.sticker && this.arraySticker[i]._idSector == sticker._idSector){
+        this.arraySticker[i].contador++;
         return;          
       }
     }
@@ -36,5 +36,13 @@ export class StickerService {
     }
     console.log(this.arrayStickerOfSector);
     return this.arrayStickerOfSector;
+  }
+
+  deleteSticker(sticker:string){
+    for (let i=0; i<this.arraySticker.length; i++){
+      if (this.arraySticker[i].sticker == sticker && this.arraySticker[i].contador == 1){
+        this.arraySticker.splice(i,1);
+      }
+    }
   }
 }
