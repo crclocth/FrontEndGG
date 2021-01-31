@@ -14,26 +14,18 @@ import { NotificationService } from 'src/app/core/services/notification/notifica
 })
 export class NodesComponent implements OnInit {
 
-  public nodes$: Node[] = [];
-  public nodes: Node[] = [];
-  public nodesArray: Node[] = [];
-  public nodesCount: any;
-  newNode: Node = null;
+  public nodes$: Observable<Node[]>;
+  public freeNodes: Observable<Node[]>;
 
   constructor(
-    private nodeService: NodeService,
-    private notificationService: NotificationService,
     private nodeProvider: NodeProviderService,
     private router: Router
-  ) { }
-
-  async ngOnInit(): Promise<void> {
-    this.nodes$ = await this.getNodes();
-    this.nodes = await this.getFreeNodes();
+  ) { 
+    this.nodes$ = this.nodeProvider.getAllUserNodes();
+    this.freeNodes = this.nodeProvider.getAllFreeNodes();
   }
 
-  async getNodes(){
-    return await this.nodeProvider.getAllUserNodes();
+  ngOnInit(): void {
   }
 
   go() {
@@ -43,131 +35,5 @@ export class NodesComponent implements OnInit {
   goFree() {
     this.router.navigate(["admin/freeNodes"]);
   }
-
-  async getFreeNodes(){
-    return await this.nodeProvider.getAllFreeNodes();
-  }
   
-  public postNode(): Node[]{ 
-    let id: string = this.nodeService.random();
-    this.nodes = [
-      {
-        _id: id,
-        nodeName: 'Nodo 001',
-        nodeState: 'perfect',
-        sensors: [
-          {
-            nodeId: id,
-            sensorState: 'danger',
-            sensorName: 'Temperatura aerea',
-          },
-          {
-            nodeId: id,
-            sensorState: 'warning',
-            sensorName: 'Humedad aerea',
-          },
-          {
-            nodeId: id,
-            sensorState: 'perfect',
-            sensorName: 'Humedad del suelo',
-          },
-          {
-            nodeId: id,
-            sensorState: 'warning',
-            sensorName: 'Temperatura del suelo',
-          },
-        ]
-      },
-      {
-        _id: id,
-        nodeName: 'Nodo 002',
-        nodeState: 'warning',
-        sensors: [
-          {
-            nodeId: id,
-            sensorState: 'warning',
-            sensorName: 'Temperatura aerea',
-          },
-          {
-            nodeId: id,
-            sensorState: 'danger',
-            sensorName: 'Humedad aerea',
-          },
-          {
-            nodeId: id,
-            sensorState: 'perfect',
-            sensorName: 'Humedad del suelo',
-          },
-          {
-            nodeId: id,
-            sensorState: 'perfect',
-            sensorName: 'Temperatura del suelo',
-          },
-        ]
-      },
-      {
-        _id: id,
-        nodeName: 'Nodo 003',
-        nodeState: 'warning',
-        sensors: [
-          {
-            nodeId: id,
-            sensorState: 'perfect',
-            sensorName: 'Temperatura aerea',
-          },
-          {
-            nodeId: id,
-            sensorState: 'warning',
-            sensorName: 'Humedad aerea',
-          },
-          {
-            nodeId: id,
-            sensorState: 'perfect',
-            sensorName: 'Humedad del suelo',
-          },
-          {
-            nodeId: id,
-            sensorState: 'danger',
-            sensorName: 'Temperatura del suelo',
-          },
-        ]
-      },
-      {
-        _id: id,
-        nodeName: 'Nodo 004',
-        nodeState: 'perfect',
-        sensors: [
-          {
-            nodeId: id,
-            sensorState: 'warning',
-            sensorName: 'Temperatura aerea',
-          },
-          {
-            nodeId: id,
-            sensorState: 'perfect',
-            sensorName: 'Humedad aerea',
-          },
-          {
-            nodeId: id,
-            sensorState: 'perfect',
-            sensorName: 'Humedad del suelo',
-          },
-          {
-            nodeId: id,
-            sensorState: 'danger',
-            sensorName: 'Temperatura del suelo',
-          },
-        ]
-      },
-    ];
-    return this.nodes;
-    try {
-      if (this.nodeService.addNode(this.newNode) == null)
-        { this.notificationService.error('Ya existe este Sector!'); return;}
-      this.nodeService.addNode(this.newNode);
-      this.notificationService.success('Su sector ha sido agregado!');
-    } catch (error) {
-      this.notificationService.error('Error al agregar su sector');
-    }
-  }
 }
