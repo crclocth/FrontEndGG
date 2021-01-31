@@ -26,7 +26,7 @@ export class SetComponent implements OnInit, OnChanges{
   ngOnInit(): void {
     this.sectorSelected = this.sector._id;
     this.subsetService.deleteSubset.subscribe( () => {
-      this.deleteSubset();
+    this.deleteSubset();
     });
   }
   
@@ -50,7 +50,8 @@ export class SetComponent implements OnInit, OnChanges{
   deleteSubset(){
     for (let i=0; i<this.subSets.length; i++){
       if (this.subSets[i].subsetName == this.subsetService.selectedSubset.subsetName){
-          this.subSets.splice(i,1);
+        this.stickerService.deleteSticker(this.subSets[i].sticker);
+        this.subSets.splice(i,1);
       }
     }
   }
