@@ -16,10 +16,10 @@ export interface Node{
   modifiedAt?: Date;
   createdAt?: Date;
   pluggedIn?: Boolean;
-  ds?: number;
+  ds?: number; //DeepSleep > 900 ? KPI gray ; KPI green
   resetDate?: Boolean;
   //Propios
-  nodeName: string;
-  nodeState: string; // "danger" : red / "warining" : yellow / "perfect" : green
-  sensors: Sensor[];
+  nodeName?: string;
+  nodeState?: string; // "danger" : red / "warining" : yellow / "perfect" : green
+  sensors?: Sensor[];
 }

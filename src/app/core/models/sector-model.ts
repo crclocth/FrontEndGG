@@ -16,5 +16,5 @@ export interface Sector{
     createdAt?: Date;
     modifiedAt?: Date;
     //Propios
-    subsets: Subset[];
+    subsets?: Subset[];
 }

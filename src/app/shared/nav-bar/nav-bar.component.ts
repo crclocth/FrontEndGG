@@ -16,7 +16,8 @@ export class NavBarComponent implements OnInit {
 
   public sectors: Sector[] = [];
   public nodes: Node[] = [];
-  public nodes$: Observable<Node[]>;
+  public nodes$: Node[];
+  public opcion: number = 1;
 
   constructor(
     private sectorServices: SectorService,
@@ -25,10 +26,11 @@ export class NavBarComponent implements OnInit {
     private nodeProvider: NodeProviderService
   ) { 
     this.sectors = this.getSectors();
-    this.nodes$ = this.getNodes();
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void>{
+    this.nodes$ = await this.getNodes();
+    this.nodes = await this.getFreeNodes();
   }
 
   getSectors(): Sector[]{
@@ -37,6 +39,10 @@ export class NavBarComponent implements OnInit {
 
   getNodes() {
     return this.nodeProvider.getAllUserNodes();
+  }
+
+  getFreeNodes() {
+    return this.nodeProvider.getAllFreeNodes();
   }
 
   getRuta(): string{

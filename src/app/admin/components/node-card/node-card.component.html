@@ -7,7 +7,8 @@
     </div>
     <div class="card-body" style="background-color: #9F9F9F;padding: 0.2rem;">
         <div class="text-center my-1" style="font-family: 'Raleway'; font-size: 13px; color: #6C757D;">
-            Por ahora nada
+            <p>Última conexión</p>
+            <p>{{node.lastSync | date: "dd/MM/yyyy, h:mm a"}}</p>
         </div>
         <ul class="list-group list-group-flush" *ngFor="let sensor of node.sensors">
             <div [ngSwitch]="sensor.sensorState">
