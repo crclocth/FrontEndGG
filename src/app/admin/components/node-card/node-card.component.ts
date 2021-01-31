@@ -12,9 +12,7 @@ export class NodeCardComponent implements OnInit {
 
   @Input() node: Node;
   
-  constructor() { 
-    console.log(this.node);
-  }
+  constructor() { }
 
   ngOnInit(): void {
   }
