@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Sector } from '../../models/sector-model';
 
 @Injectable({
@@ -10,6 +10,7 @@ export class SectorService {
   public sectorSelected: Sector;
 
   constructor() { }
+  deleteSector = new EventEmitter<any>(); 
 
   public random() {
     let result = '';
@@ -40,4 +41,6 @@ export class SectorService {
   public getTamanio(): number{
     return this.sectorsArray.length;
   }
+
+  
 }

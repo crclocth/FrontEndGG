@@ -16,7 +16,7 @@ export class SubsetService {
     this.sectorSelected = null;
   }
 
-  deleteSubset = new EventEmitter<any>(); 
+  deleteSubset = new EventEmitter<any>();
 
   public random() {
     let result = '';
