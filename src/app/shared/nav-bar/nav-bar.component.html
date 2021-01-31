@@ -16,14 +16,14 @@
         </div>
     </div>
     <div *ngSwitchCase="'/admin/nodes'">
-        <div class="container-fluid" style="background-color: #D3D3D3;">
+        <div class="container-fluid" style="background-color: #D3D3D3;" *ngIf="(nodes$ | async); let nodes">
             <div class="row">
                 <div class="card" style="background-color: black; color: white;">
                     <div class="row">
                         <div class="col-10 mt-3 mb-3">Nodos</div>
                         <div class="col-2 mt-3 mb-3 text-end">
                             <div class="circulo">
-                                {{nodes$.length}}
+                                {{nodes.length}}
                             </div>
                         </div>
                     </div>
@@ -32,14 +32,14 @@
         </div>
     </div>
     <div *ngSwitchCase="'/admin/freeNodes'">
-        <div class="container-fluid" style="background-color: #D3D3D3;">
+        <div class="container-fluid" style="background-color: #D3D3D3;" *ngIf="(freeNodes | async); let nodesFree">
             <div class="row">
                 <div class="card" style="background-color: black; color: white;">
                     <div class="row">
                         <div class="col-10 mt-3 mb-3">Nodos</div>
                         <div class="col-2 mt-3 mb-3 text-end">
                             <div class="circulo">
-                                {{nodes.length}}
+                                {{nodesFree.length}}
                             </div>
                         </div>
                     </div>
