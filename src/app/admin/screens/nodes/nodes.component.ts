@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Node } from 'src/app/core/models/node-model';
 import { Sensor } from 'src/app/core/models/sensor-model';
@@ -13,8 +14,7 @@ import { NotificationService } from 'src/app/core/services/notification/notifica
 })
 export class NodesComponent implements OnInit {
 
-  
-  public nodes$: Observable<Node[]>;
+  public nodes$: Node[] = [];
   public nodes: Node[] = [];
   public nodesArray: Node[] = [];
   public nodesCount: any;
@@ -23,26 +23,29 @@ export class NodesComponent implements OnInit {
   constructor(
     private nodeService: NodeService,
     private notificationService: NotificationService,
-    private nodeProvider: NodeProviderService
-  ) { 
-    this.nodes$ = this.getNodes();
+    private nodeProvider: NodeProviderService,
+    private router: Router
+  ) { }
+
+  async ngOnInit(): Promise<void> {
+    this.nodes$ = await this.getNodes();
+    this.nodes = await this.getFreeNodes();
   }
 
-  ngOnInit(): void {
+  async getNodes(){
+    return await this.nodeProvider.getAllUserNodes();
   }
 
-  getNodes(){
-    return this.nodeProvider.getAllUserNodes();
+  go() {
+    this.router.navigate(["admin/nodes"]);
   }
 
-  getUserNodes() {
-    console.log("hiciste click en getUserNodes");
-    return this.nodeProvider.getAllUserNodes();
+  goFree() {
+    this.router.navigate(["admin/freeNodes"]);
   }
 
-  getFreeNodes() {
-    console.log("hiciste click en getFreeNodes");
-    return this.nodeProvider.getAllFreeNodes();
+  async getFreeNodes(){
+    return await this.nodeProvider.getAllFreeNodes();
   }
   
   public postNode(): Node[]{ 
