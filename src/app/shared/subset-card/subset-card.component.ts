@@ -73,7 +73,7 @@ export class SubsetCardComponent implements OnInit {
         { this.NotificationService.error('Ya existe este Sub sector!'); return;}
       this.SubsetService.addSubset(datosForm);
       
-      this.newSticker= {_idSector : datosForm.sectorId, sticker : datosForm.sticker};
+      this.newSticker= {_idSector : datosForm.sectorId, sticker : datosForm.sticker, contador:1};
       this.StickerService.sendSticker(this.newSticker);
 
       this.NotificationService.success('Su Subsector se agrego correctamente');
