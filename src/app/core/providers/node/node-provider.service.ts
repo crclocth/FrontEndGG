@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Node } from '../../models/node-model';
 import { Sensor } from '../../models/sensor-model';
 import { HttpService } from '../../services/http/http.service';
@@ -10,14 +11,12 @@ export class NodeProviderService {
 
   constructor(private httpService: HttpService) { }
 
-  public getAllUserNodes(): Promise<Node[]> {
-    return this.httpService.get<Node[]>('/node/all')
-      .toPromise();
+  public getAllUserNodes(): Observable<Node[]> {
+    return this.httpService.get<Node[]>('/node/all');
   };
 
-  public getAllFreeNodes(): Promise<Node[]> {
-    return this.httpService.get<Node[]>('/node/unassigned/td')
-      .toPromise();
+  public getAllFreeNodes(): Observable<Node[]> {
+    return this.httpService.get<Node[]>('/node/unassigned/td');
   };
 
   public getAllUserNodeSensor(nodeId: string): Promise<Sensor[]> {
