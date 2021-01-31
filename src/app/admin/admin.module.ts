@@ -14,12 +14,14 @@ import { SubsetComponent } from './components/subset/subset.component';
 import { NodesComponent } from './screens/nodes/nodes.component';
 import { NodeCardComponent } from './components/node-card/node-card.component';
 import { NodeProviderService } from '../core/providers/node/node-provider.service';
+import { FreeNodesComponent } from './screens/freeNodes/free-nodes/free-nodes.component';
 
 const Components = [
   AdminComponent, GeneralComponent,
   SectorComponent, SetComponent,
   StickersComponent, SubsetComponent,
-  NodesComponent, NodeCardComponent
+  NodesComponent, NodeCardComponent,
+  FreeNodesComponent
 ]
 
 @NgModule({
