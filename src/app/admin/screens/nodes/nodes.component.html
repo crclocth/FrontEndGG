@@ -1,7 +1,4 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-9"></div>
-        <div class="col-3 py-0">
+
             <app-nav-bar></app-nav-bar>
             <div class="container-fluid" *ngIf="(nodes$ | async); let nodes">
                 <div class="row" *ngIf="(freeNodes | async); let nodeS">
@@ -33,9 +30,6 @@
                             </button>
                         </div>
                     </div>
-                    <app-node-card *ngFor="let node of nodeS" [node]="node"></app-node-card>
+                    <app-node-card *ngFor="let node of nodes" [node]="node"></app-node-card>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
