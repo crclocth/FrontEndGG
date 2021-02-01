@@ -3,9 +3,9 @@ export interface Sensor{
   //Del BackEnd
   _id?: string;
   name?: string;
-  type?: string;
+  type?: string; 
   unit?: string;
-  stat?: number;
+  stat?: number; // INACIVE: -1 - CRITICAL_MAX: 0 - CRITICAL_MIN: 1 - WARNING_MAX: 2 - WARNING_MIN: 3 - OPTIMUM: 4 - OK: 5
   model?: string;
   address?: number;
   data?: number;
