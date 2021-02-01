@@ -19,9 +19,4 @@ export class NodeProviderService {
     return this.httpService.get<Node[]>('/node/unassigned/td');
   };
 
-  public getAllUserNodeSensor(nodeId: string): Promise<Sensor[]> {
-    return this.httpService.get<Sensor[]>('/sensor/all/' + nodeId)
-      .toPromise();
-  };
-
 }

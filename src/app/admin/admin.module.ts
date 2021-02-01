@@ -9,12 +9,12 @@ import { SetComponent } from './components/set/set.component';
 import { StickersComponent } from './components/stickers/stickers.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CoreModule } from '../core/core.module';
 import { SubsetComponent } from './components/subset/subset.component';
 import { NodesComponent } from './screens/nodes/nodes.component';
 import { NodeCardComponent } from './components/node-card/node-card.component';
 import { NodeProviderService } from '../core/providers/node/node-provider.service';
-import { FreeNodesComponent } from './screens/freeNodes/free-nodes/free-nodes.component';
+import { SensorProviderService } from '../core/providers/sensor/sensor-provider.service';
+import { FreeNodesComponent } from './screens/freeNodes/free-nodes.component';
 
 const Components = [
   AdminComponent, GeneralComponent,
@@ -35,7 +35,8 @@ const Components = [
     FormsModule,
   ],
   providers: [
-    NodeProviderService
+    NodeProviderService,
+    SensorProviderService
   ],
   exports: [...Components]
 })

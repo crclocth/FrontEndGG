@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin.component';
-import { FreeNodesComponent } from './screens/freeNodes/free-nodes/free-nodes.component';
+import { FreeNodesComponent } from './screens/freeNodes/free-nodes.component';
 import { GeneralComponent } from './screens/general/general.component';
 import { NodesComponent } from './screens/nodes/nodes.component';
 
