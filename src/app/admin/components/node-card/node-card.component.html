@@ -1,80 +1,50 @@
-<!--<div class="card text-white  mt-1 mb-3" *ngIf="(sensors$ | async); let sensors">
-    <div class="card-header mt-0 justify-content-center" style="background-color: #6b6b6b;">
-        <div class="row">
-            <div class="col-4 mt-1" style="font-size: 18px;">{{'Nodo ' + node?.number?.toString()}}</div>
-            <div class="col-6 mt-2">
-                <div class="text-left" style="font-family: 'Raleway'; font-size: 12px;">
-                    <p>{{node?.lastSync | date: "HH:mm - d/MM/yyyy"}}</p>
-                </div>
-            </div>
-            <div class="col-2">
-                <ng-container *ngIf="(node?.ds > 900); else elseTemplate2"> <!-- (hora actual > (lastSync + 4*ds))? KPI gray; KPI green -->
-                                                                            <!-- (hora actual > (lastSync + 3*ds))? KPI red; KPI green -->
-                                                                            <!-- (hora actual > (lastSync + 2*ds))? KPI yellow; KPI green 
-                    <div class="col-2 circulo" style="background-color: gray; color: white;">{{sensors.length}}</div>
-                </ng-container>
-                <ng-template #elseTemplate2> 
-                    <div class="col-2 circulo" style="background-color: #87FF10;">{{sensors.length}}</div>
-                </ng-template>
-            </div>
-        </div>
-    </div>
-    <div class="card-body" style="background-color: #9F9F9F;padding: 0.2rem;">
-        <ul class="list-group list-group-flush" *ngFor="let sensor of sensors">
-            <div [ngSwitch]="sensor.stat">
-                <div *ngSwitchCase="2">
-                    <li class="list-group-item mt-1" style="background-color: #EEB72B;">{{getSensorType(sensor?.type)}}</li>
-                </div>
-                <div *ngSwitchCase="1">
-                    <li class="list-group-item mt-1" style="background-color: #5DAF1C;">{{getSensorType(sensor?.type)}}</li>
-                </div>
-                <div *ngSwitchCase="3">
-                    <li class="list-group-item mt-1" style="background-color: #FF0000;">{{getSensorType(sensor?.type)}}</li>
-                </div>
-            </div>
-          </ul>
-    </div>
-</div>-->
 <div class="accordion accordion-flush text-white  mt-1 mb-3" id="accordionFlushExample" *ngIf="(sensors$ | async); let sensors">
     <div class="accordion-item">
         <div class="accordion-header mt-0 justify-content-center" id="flush-heading{{node._id}}" style="background-color: #6b6b6b;">
-            <a class="accordion-button collapsed text-white" style="text-decoration: none; text-decoration-color: none;" type="button" data-bs-toggle="collapse" href="#flush-collapse{{node._id}}" aria-expanded="false" aria-controls="flush-collapseOne">
-                <!-- ARREGLAR ETIQUETA "A", AL APRETAR ENCIMA DE LA ROW, REDIRECCIONA LA PAGINA Y DEBERIA SOLO DESPLEGAR EL ACCORDION-BODY -->
-                <div class="row">
-                    <div class="col-4 mt-1" style="font-size: 18px;">{{'Nodo ' + node?.number?.toString()}}</div>
-                    <div class="col-6 mt-2">
-                        <div class="text-left" style="font-family: 'Raleway'; font-size: 12px;">
-                            <p>{{node?.lastSync | date: "HH:mm - d/MM/yyyy"}}</p>
+            <div class="row">
+                <div class="col-9 pl-3">
+                    <a class="accordion-button collapsed text-white" style="text-decoration: none; text-decoration-color: none;" type="button" data-bs-toggle="collapse" href="#flush-collapse{{node._id}}" aria-expanded="false" aria-controls="flush-collapseOne">
+                        <!-- ARREGLAR ETIQUETA "A", AL APRETAR ENCIMA DE LA ROW, REDIRECCIONA LA PAGINA Y DEBERIA SOLO DESPLEGAR EL ACCORDION-BODY -->
+                        <div class="row">
+                            <div class="col-6 mt-3" style="font-size: 15px;">{{'Nodo ' + node?.number?.toString()}}</div>
+                            <div class="col-6 mt-2">
+                                <div class="text-left" style="font-family: 'Raleway'; font-size: 11px;">
+                                    <p class="text-center">{{node?.lastSync | date: "HH:mm \n d/MM/yyyy"}}</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-2">
-                        <ng-container *ngIf="(node?.ds > 900); else elseTemplate2"> <!-- (hora actual > (lastSync + 4*ds))? KPI gray; KPI green -->
-                                                                                    <!-- (hora actual > (lastSync + 3*ds))? KPI red; KPI green -->
-                                                                                    <!-- (hora actual > (lastSync + 2*ds))? KPI yellow; KPI green -->
-                            <div class="col-2 circulo" style="background-color: gray; color: white;">{{sensors.length}}</div>
-                        </ng-container>
-                        <ng-template #elseTemplate2> 
-                            <div class="col-2 circulo" style="background-color: #87FF10;">{{sensors.length}}</div>
-                        </ng-template>
-                    </div>
+                    </a>
                 </div>
-            </a>
+                <div class="col-3 mt-3"> <!-- (hora actual > (lastSync + 4*ds))? KPI gray; KPI green --> <!-- (hora actual > (lastSync + 3*ds))? KPI red; KPI green --> <!-- (hora actual > (lastSync + 2*ds))? KPI yellow; KPI green -->
+                    <ng-container *ngIf="(node?.ds > 900); else elseTemplate2">
+                        <div class="circulo mt-1" style="background-color: gray; color: white;">{{sensors.length}}</div>
+                    </ng-container>
+                    <ng-template #elseTemplate2> 
+                        <div class="circulo mt-1" style="background-color: #87FF10;">{{sensors.length}}</div>
+                    </ng-template>
+                </div>
+            </div>
         </div>
         <div id="flush-collapse{{node._id}}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body" style="background-color: #9F9F9F;padding: 0.2rem;">
-                <ul class="list-group list-group-flush" *ngFor="let sensor of sensors">
-                    <div [ngSwitch]="sensor.stat">
-                        <div *ngSwitchCase="2">
-                            <li class="list-group-item mt-1" style="background-color: #EEB72B;">{{getSensorType(sensor?.type)}}</li>
+                <div class="overflow-scroll">
+                    <ul class="list-group list-group-flush"  *ngFor="let sensor of sensors">
+                        <div [ngSwitch]="sensor?.stat" *ngIf="sensor?.type">
+                            <div *ngSwitchCase="2 || 3"> <!-- WARNING MIN && WARNING MAX -->
+                                <li class="list-group-item mt-1" style="background-color: #EEB72B;">{{getSensorType(sensor?.type)}}</li>
+                            </div>
+                            <div *ngSwitchCase="4 || 5"> <!-- OPTIMUM && OK-->
+                                <li class="list-group-item mt-1" style="background-color: #5DAF1C;">{{getSensorType(sensor?.type)}}</li>
+                            </div>
+                            <div *ngSwitchCase="0 || 1"> <!-- CRITICAL MIN && CRITICAL MAX-->
+                                <li class="list-group-item mt-1" style="background-color: #FF0000;">{{getSensorType(sensor?.type)}}</li>
+                            </div>
+                            <div *ngSwitchCase="-1"> <!-- INACTIVE -->
+                                <li class="list-group-item mt-1" style="background-color: #07425E;">{{getSensorType(sensor?.type)}}</li>
+                            </div>
                         </div>
-                        <div *ngSwitchCase="1">
-                            <li class="list-group-item mt-1" style="background-color: #5DAF1C;">{{getSensorType(sensor?.type)}}</li>
-                        </div>
-                        <div *ngSwitchCase="3">
-                            <li class="list-group-item mt-1" style="background-color: #FF0000;">{{getSensorType(sensor?.type)}}</li>
-                        </div>
-                    </div>
-                </ul>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

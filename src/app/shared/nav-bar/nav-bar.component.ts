@@ -15,9 +15,8 @@ import { SectorService } from 'src/app/core/services/sector/sector.service';
 export class NavBarComponent implements OnInit {
 
   public sectors: Sector[] = [];
-  public freeNodes: Observable<Node[]>;
+  public freeNodes$: Observable<Node[]>;
   public nodes$: Observable<Node[]>;
-  public opcion: number = 1;
 
   constructor(
     private sectorServices: SectorService,
@@ -26,7 +25,7 @@ export class NavBarComponent implements OnInit {
   ) { 
     this.sectors = this.getSectors();
     this.nodes$ = this.nodeProvider.getAllUserNodes();
-    this.freeNodes = this.nodeProvider.getAllFreeNodes();
+    this.freeNodes$ = this.nodeProvider.getAllFreeNodes();
   }
 
   ngOnInit(): void {
