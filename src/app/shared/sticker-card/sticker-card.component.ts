@@ -21,6 +21,6 @@ export class StickerCardComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.sendSticker = this.stickerService.arraiSector(this.insector);
+    this.sendSticker = this.stickerService.arraySticker;
   }  
 }
