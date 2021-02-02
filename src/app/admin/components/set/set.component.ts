@@ -3,6 +3,7 @@ import { Sector } from 'src/app/core/models/sector-model';
 import { Subset } from 'src/app/core/models/subset-model';
 import { StickerService } from 'src/app/core/services/sticker/sticker.service';
 import { SubsetService } from 'src/app/core/services/subset/subset.service';
+import { SectorService } from '../../../core/services/sector/sector.service';
 
 @Component({
   selector: 'app-set',
@@ -19,6 +20,7 @@ export class SetComponent implements OnInit, OnChanges{
   constructor(
     public subsetService: SubsetService,
     public stickerService: StickerService,
+    public sectorService: SectorService,
   ) {
     this.subSets = this.getSubSets();
   }
@@ -28,15 +30,14 @@ export class SetComponent implements OnInit, OnChanges{
     this.subsetService.deleteSubset.subscribe( () => {
     this.deleteSubset();
     });
-    this.subsetService.deleteSubset.subscribe( () => {
+    this.sectorService.deleteSector.subscribe( () => {
       this.deleteAllSubsetOfSector();
-      });
+    });
 
   }
   
   ngOnChanges():void{
     this.subSets = this.getSubSets();
-    console.log("sdadsa");
   }
 
   getSubSets(): Subset[]{
@@ -52,6 +53,7 @@ export class SetComponent implements OnInit, OnChanges{
   }
   
   deleteSubset(){
+    console.log(this.subsetService.selectedSubset);
     for (let i=0; i<this.subSets.length; i++){
       if (this.subSets[i].subsetName == this.subsetService.selectedSubset.subsetName){
         this.stickerService.deleteSticker(this.subSets[i].sticker);
