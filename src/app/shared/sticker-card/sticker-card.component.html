@@ -10,7 +10,7 @@
                 </div>
                 <div class="row">
 
-                    <ng-container *ngFor="let sticker of stickerService.arrayStickerOfSector">
+                    <ng-container *ngFor="let sticker of stickerService.arraySticker">
                         <ng-container class="col-6" *ngIf="insector._id == sticker._idSector">
                             <app-sticker-button [sendSticker]="sticker"></app-sticker-button>
                         </ng-container>
