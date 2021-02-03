@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Sector } from '../../models/sector-model';
 import { Sticker } from '../../models/sticker-model';
 import { SectorService } from '../sector/sector.service';
@@ -13,12 +13,14 @@ export class StickerService {
   public arraySticker: Sticker[] =[];
   public arrayStickerOfSector: Sticker[] =[];
   public sectorSelected: Sector;
+  public nameSticker:string = '';
+
   constructor(
     public subsetService: SubsetService,
     public sectorService: SectorService  
   ) { 
   }
-
+  senddSticker = new EventEmitter<any>();
   public getSector(sector: Sector){
     this.sectorSelected = sector;
     console.log(this.sectorSelected);
@@ -65,5 +67,7 @@ export class StickerService {
     }
     console.log(this.arraySticker);
   }
+
+
 }
 
