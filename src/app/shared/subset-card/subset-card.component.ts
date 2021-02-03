@@ -24,6 +24,7 @@ export class SubsetCardComponent implements OnInit {
   isDivVisible = false;
   newSubset: Subset = null;
   public newSticker: Sticker;
+  public stickerOfButton: string;
 
   constructor(
     private SubsetService: SubsetService,
@@ -36,6 +37,9 @@ export class SubsetCardComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.StickerService.senddSticker.subscribe( (sticker:string) => {
+      this.stickerOfButton = sticker;
+    });
   }
 
   setOptionn(num: number) {
@@ -65,6 +69,9 @@ export class SubsetCardComponent implements OnInit {
       //sticker: this.checkoutForm.get('sticker')?.value,
       subsetName:  this.checkoutForm.get('subsetName')?.value,
       sectorId: this.sector._id
+    }
+    if (datosForm.sticker == ''){
+      datosForm.sticker = this.stickerOfButton;
     }
     this.newSubset = datosForm;
     this.newSubset.subsetName = this.newSubset.subsetName.trim();
