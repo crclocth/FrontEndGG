@@ -1,104 +1,43 @@
-<!-----<div class="modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" [ngSwitch]="opcion">
+<ng-container *ngIf="(opcion$ == 'conjunto'); else Template2">
 
-        <div class="modal-content" *ngSwitchCase="'2'">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">¡ELIMINAR CONJUNTO!</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Se eliminará el Conjunto seleccionado con todos sus Subconjuntos asociados
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn" style="background-color: #c2484a; color: white;" (click)="setOption('1')">Eliminar</button>
-            </div>
-        </div>
 
-        <div class="modal-content" *ngSwitchCase="'1'">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Confirmación de Eliminación</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="setOption('2')"></button>
-            </div>
-            <div class="modal-body">
-                ¿Está seguro de que desea ELIMINAR el Conjunto seleccionado?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-warning" data-bs-dismiss="modal" (click)="setOption('2')">Cancelar</button>
-                <button type="button" class="btn" style="background-color: #c2484a; color: white;" data-bs-dismiss="modal" (click)="setOption('2'); buttonDeletePressed()">Eliminar</button>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">¡ELIMINAR CONJUNTO!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>Se eliminará el Conjunto "{{sectorName}}" con todos sus Subconjuntos asociados</h6>
+                    <h6>¿Está seguro de que desea ELIMINAR el Conjunto "{{sectorName}}"?</h6>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn" style="background-color: #c2484a; color: white;" data-bs-dismiss="modal" (click)="buttonDeletePressed(sectorName)">Eliminar</button>
+                </div>
             </div>
         </div>
     </div>
-</div>----->
+</ng-container>
 
-
-
-<!---<div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" [ngSwitch]="opcion">
-
-        <div class="modal-content" *ngSwitchCase="'2'">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">¡ELIMINAR CONJUNTO!</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Se eliminará el Conjunto seleccionado con todos sus Subconjuntos asociados
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn" style="background-color: #c2484a; color: white;" (click)="setOption('1')">Eliminar</button>
-            </div>
-        </div>
-
-        <div class="modal-content" *ngSwitchCase="'1'">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Confirmación de Eliminación</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="setOption('2')"></button>
-            </div>
-            <div class="modal-body">
-                ¿Está seguro de que desea ELIMINAR el Conjunto seleccionado?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-warning" data-bs-dismiss="modal" (click)="setOption('2')">Cancelar</button>
-                <button type="button" class="btn" style="background-color: #c2484a; color: white;" data-bs-dismiss="modal" (click)="setOption('2'); buttonDeletePressed()">Eliminar</button>
+<ng-template #Template2>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">¡ELIMINAR SUBCONJUNTO!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>Se eliminará el Subconjunto "{{subsetName}}"</h6>
+                    <h6>¿Está seguro de que desea ELIMINAR el Subconjunto "{{subsetName}}"?</h6>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn" style="background-color: #c2484a; color: white;" data-bs-dismiss="modal" (click)="buttonDeletePressed(subsetName)">Eliminar</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-<div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">¡ELIMINAR CONJUNTO!</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Se eliminará el Conjunto seleccionado con todos sus Subconjuntos asociados
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn" style="background-color: #c2484a; color: white;" data-bs-dismiss=" modal" data-bs-toggle="modal" data-bs-target="#exampleModal1"><app-modal-deletee></app-modal-deletee> Eliminar</button>
-            </div>
-        </div>
-    </div>
-</div>---->
-
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog  modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">¡ELIMINAR CONJUNTO!</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <h5>Se eliminará el Conjunto seleccionado con todos sus Subconjuntos asociados</h5>
-                <h6>¿Está seguro de que desea ELIMINAR el Conjunto seleccionado?</h6>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn" style="background-color: #c2484a; color: white;" data-bs-dismiss="modal" (click)="buttonDeletePressed()">Eliminar</button>
-            </div>
-        </div>
-    </div>
-</div>
+</ng-template>

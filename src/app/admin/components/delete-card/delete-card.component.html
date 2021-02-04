@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <ng-container *ngIf="(opcion == 1); else Template2">
+        <div class="alert alert-dark" role="alert">
+            <h6>¿Desea ELIMINAR el Conjunto "{{nameSector}}"?</h6>
+            <div class="row mt-2 mb-2 ">
+                <div class="col-1"></div>
+                <button type="button" class=" col-4 pl-3 pr-3 col-md-3 txt-center btn" style="background-color: #19bd00;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">SI
+                    <app-modal-delete [sectorName]="nameSector" [opcion$]="'conjunto'"></app-modal-delete>
+                </button>
+                <div class="col-2"></div>
+                <button type="button" class="col-4 pl-3 pr-3 col-md-3 txt-center btn" style="background-color: #c2484a; " (click)="enviar()">NO</button>
+                <div class="col-1"></div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #Template2>
+        <div class="alert alert-warning" role="alert">
+            <h6>¿Desea ELIMINAR el Subconjunto "{{nameSubset}}"?</h6>
+            <div class="row mt-2 mb-2 ">
+                <div class="col-1"></div>
+                <button type="button" class=" col-4 pl-3 pr-3 col-md-3 txt-center btn" style="background-color: #19bd00;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">SI
+                    <app-modal-delete [subsetName]="nameSubset" [opcion$]="'subconjunto'"></app-modal-delete>
+                </button>
+                <div class="col-2"></div>
+                <button type="button" class="col-4 pl-3 pr-3 col-md-3 txt-center btn" style="background-color: #c2484a; " (click)="enviar()">NO</button>
+                <div class="col-1"></div>
+            </div>
+        </div>
+    </ng-template>
+</div>

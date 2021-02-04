@@ -35,26 +35,13 @@ export class StickerService {
     }
     this.arraySticker.push(sticker);
   }
-  arraiSector(sec: Sector):Sticker[]{
-    for(let i=0; i< this.arraySticker.length; i++){
-      if(sec === null){
-        console.log("salu¿oi");
-        return;
-      } 
-      else{
-        if(sec._id == this.arraySticker[i]._idSector){
-          this.arrayStickerOfSector.push(this.arraySticker[i]);
-        }
-      }
-    }
-    console.log(this.arrayStickerOfSector);
-    return this.arrayStickerOfSector;
-  }
-
   deleteSticker(sticker:string){
     for (let i=0; i<this.arraySticker.length; i++){
       if (this.arraySticker[i].sticker == sticker && this.arraySticker[i].contador == 1){
         this.arraySticker.splice(i,1);
+      }
+      else{
+        this.arraySticker[i].contador--;
       }
     }
   }
