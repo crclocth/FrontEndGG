@@ -15,6 +15,7 @@ import { NodeCardComponent } from './components/node-card/node-card.component';
 import { NodeProviderService } from '../core/providers/node/node-provider.service';
 import { SensorProviderService } from '../core/providers/sensor/sensor-provider.service';
 import { FreeNodesComponent } from './screens/freeNodes/free-nodes.component';
+import { DeleteCardComponent } from './components/delete-card/delete-card.component';
 
 const Components = [
   AdminComponent, GeneralComponent,
@@ -25,7 +26,7 @@ const Components = [
 ]
 
 @NgModule({
-  declarations: [...Components],
+  declarations: [...Components, DeleteCardComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

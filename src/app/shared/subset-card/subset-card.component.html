@@ -33,10 +33,11 @@
                             </div>
                             <!---</div>--->
                         </div>
-                        <div *ngIf="sticker.dirty && sticker.touched"></div>
+
                         <div *ngIf="sticker.touched && !sticker.dirty">
                             <app-sticker-card [insector]="sector"></app-sticker-card>
                         </div>
+
                     </div>
                 </div>
             </form>
@@ -47,7 +48,7 @@
 <div class="container-fluid ">
     <div class="row justify-content-center mt-2 mb-2 ">
         <div class="col-md-3 txt-center btn ">
-            <button type="button " class="btn " style='line-height: 100%; background-color:#82C83C; width: 162px; Height: 31px' (click)="postSubset(); enviar() ">ENVIAR</button>
+            <button type="button " class="btn btnn " style='line-height: 100%; background-color:#82C83C; width: 162px; Height: 31px' [disabled]="!checkoutForm.valid && trigger" (click)="postSubset(); enviar() ">ENVIAR</button>
         </div>
     </div>
 </div>

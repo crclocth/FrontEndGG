@@ -25,6 +25,7 @@ export class SubsetCardComponent implements OnInit {
   newSubset: Subset = null;
   public newSticker: Sticker;
   public stickerOfButton: string;
+  public trigger:boolean = true;
 
   constructor(
     private SubsetService: SubsetService,
@@ -39,7 +40,17 @@ export class SubsetCardComponent implements OnInit {
   ngOnInit(): void {
     this.StickerService.senddSticker.subscribe( (sticker:string) => {
       this.stickerOfButton = sticker;
+      this.trigger = false;
     });
+  }
+  
+  isDisabled(){
+    if (this.stickerOfButton == ""){
+      this.trigger=true;  
+    }
+    else{
+      this.trigger=false;
+    }
   }
 
   setOptionn(num: number) {
@@ -79,7 +90,6 @@ export class SubsetCardComponent implements OnInit {
       if (this.SubsetService.addSubset(this.newSubset) == null)
         { this.NotificationService.error('Ya existe este Sub sector!'); return;}
       this.SubsetService.addSubset(datosForm);
-      
       this.newSticker= {_idSector : datosForm.sectorId, sticker : datosForm.sticker, contador:1};
       this.StickerService.sendSticker(this.newSticker);
 

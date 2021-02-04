@@ -13,10 +13,13 @@ export class SubsetComponent implements OnInit {
 
   @Input() subset: Subset;
   public modal:any;
+  public opcion: string;
 
   constructor(
     private subsetService: SubsetService
-  ) {}
+  ) {
+    this.opcion = '2';
+  }
 
   ngOnInit(): void {
   }
@@ -25,4 +28,13 @@ export class SubsetComponent implements OnInit {
     this.subsetService.subsetSelected(this.subset);
   }
 
+  setOption(num:string){
+    this.opcion=num;
+  }
+  buttonDeletePressed(){
+    this.subsetService.deleteSubset.emit();
+  }
+  switchOption(num:string){
+    this.opcion = num;
+  }
 }
