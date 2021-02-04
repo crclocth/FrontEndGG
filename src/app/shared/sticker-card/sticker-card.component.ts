@@ -15,12 +15,11 @@ export class StickerCardComponent implements OnInit {
   public sendSticker:Sticker[]=[];
   constructor(
     public stickerService: StickerService,
-    public SectorService: SectorService
   ) { 
     
   }
   
   ngOnInit(): void {
-    this.sendSticker = this.stickerService.arraiSector(this.insector);
+    this.sendSticker = this.stickerService.arraySticker;
   }  
 }

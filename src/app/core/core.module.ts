@@ -5,12 +5,20 @@ import { NotificationService } from './services/notification/notification.servic
 import { SubsetService } from './services/subset/subset.service';
 import { SectorService } from './services/sector/sector.service';
 import { NodeService } from './services/node/node.service';
+import { SensorService } from './services/sensor/sensor.service';
+import { HttpService } from './services/http/http.service';
+import { StickerService } from './services/sticker/sticker.service';
+import { DragAndDropService } from './services/DragAndDrop/drag-and-drop.service';
 
 const Services = [
   NotificationService,
   SectorService,
   SubsetService,
-  NodeService
+  NodeService,
+  SensorService,
+  HttpService,
+  StickerService,
+  DragAndDropService
 ];
 
 
@@ -18,11 +26,6 @@ const Services = [
   declarations: [],
   imports: [
     CommonModule,
-    ToastrModule.forRoot({
-      progressBar: true,
-      closeButton: true,
-      positionClass: 'toast-top-right'
-    }),
   ],
   providers: [...Services]
  

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Sector } from 'src/app/core/models/sector-model';
 import { SectorService } from 'src/app/core/services/sector/sector.service';
 import { SubsetService } from 'src/app/core/services/subset/subset.service';
+import { StickerService } from 'src/app/core/services/sticker/sticker.service';
 
 @Component({
   selector: 'app-general',
@@ -16,13 +17,17 @@ export class GeneralComponent implements OnInit {
 
   constructor(
     private sectorServices: SectorService,
-    public subsetServices: SubsetService
+    private subsetServices: SubsetService,
+    private stickerService: StickerService
   ) { 
     this.sectors = this.getSectors();
     this.sectorSelected = null;
   }
 
   ngOnInit(): void {
+    this.sectorServices.deleteSector.subscribe( () => {
+      this.deleteSector();
+      });
   }
 
   setOption(num: string) {
@@ -40,6 +45,14 @@ export class GeneralComponent implements OnInit {
   public selectedSector (sector: Sector): void {
     this.sectorSelected = sector;
     this.subsetServices.getSector(this.sectorSelected);
+    this.stickerService.getSector(this.sectorSelected);
   }
 
+  public deleteSector(){
+    for (let i=0; i<this.sectors.length;i++){
+      if (this.sectors[i] == this.sectorSelected){
+        this.sectors.splice(i,1);
+      }
+    }
+  }
 }

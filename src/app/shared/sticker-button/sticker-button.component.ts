@@ -10,11 +10,11 @@ import { StickerService } from 'src/app/core/services/sticker/sticker.service';
 export class StickerButtonComponent implements OnInit {
 
   @Input() public sendSticker: Sticker;
-  constructor(public stickerService: StickerService) { 
+  constructor(
+    private stickerService: StickerService) { 
   }
   public color: string; 
   public colorretornado: string;
-  
 
   ngOnInit(): void {
   }
@@ -28,6 +28,11 @@ export class StickerButtonComponent implements OnInit {
   }
 
   colorr = this.randomcolor();
+
+
+  enviarSticker(){
+    this.stickerService.senddSticker.emit(this.sendSticker.sticker);
+  }
 }
   //public buttonBgColor = ' #FF0000'
   //this.buttonBgColor= '#c20018'

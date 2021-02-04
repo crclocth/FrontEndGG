@@ -2,8 +2,24 @@ import { Sensor } from "./sensor-model";
 
 export interface Node{
 
+  // Del BackEnd
   _id?: string;
-  nodeName: string;
-  nodeState: string; // "danger" : red / "warining" : yellow / "perfect" : green
-  sensors: Sensor[];
+  vitality?: number;
+  crop?: string;
+  number?: number;
+  charge?: number;
+  sectorId?: string;
+  greenhouse?: string;
+  syncSignal?: Boolean;
+  lastSync?: Date;
+  users?: string[];
+  modifiedAt?: Date;
+  createdAt?: Date;
+  pluggedIn?: Boolean;
+  ds?: number; //DeepSleep > 900 ? KPI gray ; KPI green
+  resetDate?: Boolean;
+  //Propios
+  nodeName?: string;
+  nodeState?: string; // "danger" : red / "warining" : yellow / "perfect" : green
+  sensors?: Sensor[];
 }

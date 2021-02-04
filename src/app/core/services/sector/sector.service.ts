@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Sector } from '../../models/sector-model';
 
 @Injectable({
@@ -6,10 +6,11 @@ import { Sector } from '../../models/sector-model';
 })
 export class SectorService {
 
-  private sectorsArray: Sector[] = [];
+  public sectorsArray: Sector[] = [];
   public sectorSelected: Sector;
 
   constructor() { }
+  deleteSector = new EventEmitter<any>(); 
 
   public random() {
     let result = '';
@@ -40,4 +41,6 @@ export class SectorService {
   public getTamanio(): number{
     return this.sectorsArray.length;
   }
+
+  
 }
