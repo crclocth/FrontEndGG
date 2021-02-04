@@ -7,34 +7,26 @@
                         {{sector.name}}
                     </a>
                 </div>
-
-
                 <div class="col-2 mt-2 mb-2">
                     <!---<i class="fas fa-minus-circle"></i>--->
                     <button type="button" class="btn btn-white"><i class="fas fa-minus-circle" style="color: white; font-size: 180%;"(click)="setOption('1')"></i>
-                        
                     </button>
-                </div>
-                <div *ngIf="opcion == '1'">
-                    <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#staticBackdrop">SI<app-modal-delete></app-modal-delete></button>
-
-                    <div class="btn-group" role="group" aria-label="Basic outlined example">
-                        <button type="button" class="btn ">NO</button>
-                    </div>
                 </div>
                 <ng-container *ngIf="subSets.length">
                     <div class="col-2 mt-3 circulo">
                         {{subSets.length}}
                     </div>
                 </ng-container>
-
+                <div *ngIf="opcion == '1'">
+                    <app-delete-card (opcion$)="switchOption($event)" [nameSector]="sector?.name" [opcion]="'1'"></app-delete-card>
+                </div>
             </div>
         </h2>
         <div id="flush-collapse{{sector._id}}" class="accordion-collapse collapse text-dark" style="background-color: white;" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body mt-0" data-bs-parent="#accordionFlushExample" *ngFor="let sticker of stickerService.arraySticker">
                 <app-stickers *ngIf="sector._id == sticker._idSector" [stickerrr]="sticker.sticker"></app-stickers>
                 <ng-container *ngFor="let subset of subSets">
-                    <app-subset *ngIf="sector._id == subset.sectorId && subset.sticker == sticker.sticker" [subset]="subset"></app-subset>
+                    <app-subset *ngIf="sector._id == subset.sectorId && subset.sticker == sticker.sticker && sector._id == sticker._idSector" [subset]="subset"></app-subset>
                 </ng-container>
             </div>
             <app-sub-sector (subsetEmitter)="addNewSubset($event)" [sector]="sector"></app-sub-sector>

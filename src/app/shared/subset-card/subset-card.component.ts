@@ -90,7 +90,6 @@ export class SubsetCardComponent implements OnInit {
       if (this.SubsetService.addSubset(this.newSubset) == null)
         { this.NotificationService.error('Ya existe este Sub sector!'); return;}
       this.SubsetService.addSubset(datosForm);
-      
       this.newSticker= {_idSector : datosForm.sectorId, sticker : datosForm.sticker, contador:1};
       this.StickerService.sendSticker(this.newSticker);
 
