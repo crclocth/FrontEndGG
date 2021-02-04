@@ -16,6 +16,7 @@ export class SetComponent implements OnInit, OnChanges{
 
   public sectorSelected: string;
   public subSets: Subset[] = [];
+  public opcion: string = '2';
   
   constructor(
     public subsetService: SubsetService,
@@ -68,5 +69,8 @@ export class SetComponent implements OnInit, OnChanges{
         this.subSets.splice(i,1);
       }
     }
+  }
+  setOption(num:string){
+    this.opcion=num;
   }
 }
