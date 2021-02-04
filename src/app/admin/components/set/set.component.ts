@@ -18,9 +18,9 @@ export class SetComponent implements OnInit, OnChanges{
   public subSets: Subset[] = [];
   
   constructor(
-    public subsetService: SubsetService,
+    private subsetService: SubsetService,
     public stickerService: StickerService,
-    public sectorService: SectorService,
+    private sectorService: SectorService,
   ) {
     this.subSets = this.getSubSets();
   }

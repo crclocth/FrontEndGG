@@ -15,7 +15,7 @@ export class SubsetComponent implements OnInit {
   public modal:any;
 
   constructor(
-    public subsetService: SubsetService
+    private subsetService: SubsetService
   ) {}
 
   ngOnInit(): void {

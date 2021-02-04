@@ -8,6 +8,7 @@ import { NodeService } from './services/node/node.service';
 import { SensorService } from './services/sensor/sensor.service';
 import { HttpService } from './services/http/http.service';
 import { StickerService } from './services/sticker/sticker.service';
+import { DragAndDropService } from './services/DragAndDrop/drag-and-drop.service';
 
 const Services = [
   NotificationService,
@@ -16,7 +17,8 @@ const Services = [
   NodeService,
   SensorService,
   HttpService,
-  StickerService
+  StickerService,
+  DragAndDropService
 ];
 
 

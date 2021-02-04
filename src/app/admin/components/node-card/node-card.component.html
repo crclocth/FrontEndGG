@@ -14,13 +14,28 @@
                             </div>
                         </div>
                     </a>
-                </div> <!-- AGREGAR USO DE SOCKETS PARA PODER OBTENER LA HORA ACTUAL -->
-                <div class="col-3 mt-3"> <!-- (hora actual > (lastSync + 4*ds))? KPI gray; KPI green --> <!-- (hora actual > (lastSync + 3*ds))? KPI red; KPI green --> <!-- (hora actual > (lastSync + 2*ds))? KPI yellow; KPI green -->
-                    <ng-container *ngIf="(node?.ds > 900); else elseTemplate2">
+                </div>
+                <div class="col-3 mt-3"> <!-- (hora actual > (lastSync + 4*ds))? KPI gray; KPI green --> 
+                    <ng-container *ngIf="(moment > (momentNode + (4*node?.ds))); else elseTemplate2"> <!-- INACTIVE -->
                         <div class="circulo mt-1" style="background-color: gray; color: white;">{{sensors.length}}</div>
                     </ng-container>
-                    <ng-template #elseTemplate2> 
-                        <div class="circulo mt-1" style="background-color: #87FF10;">{{sensors.length}}</div>
+                    <ng-template #elseTemplate2> <!-- (hora actual > (lastSync + 3*ds))? KPI red; KPI green -->
+                        <ng-container *ngIf="(moment > (momentNode + (3*node?.ds))); else elseTemplate3"> <!-- DANGER ACTIVE -->
+                            <div class="circulo mt-1" style="background-color: #FF0000; color: white;">{{sensors.length}}</div>
+                        </ng-container>
+                        <ng-template #elseTemplate3> <!-- (hora actual > (lastSync + 2*ds))? KPI yellow; KPI green -->
+                            <ng-container *ngIf="(moment > (momentNode + (2*node?.ds))); else elseTemplate4"> <!-- WARNING ACTIVE-->
+                                <div class="circulo mt-1" style="background-color: #EEB72B; color: white;">{{sensors.length}}</div>
+                            </ng-container>
+                            <ng-template #elseTemplate4> <!-- ACTIVE -->
+                                <ng-container *ngIf="node?.ds == 900; else elseTemplate5">
+                                    <div class="circulo mt-1" style="background-color: #87FF10;">{{sensors.length}}</div>
+                                </ng-container>
+                                <ng-template #elseTemplate5>
+                                    <div class="circulo mt-1" style="background-color: #87FF10;">{{sensors.length}}</div>
+                                </ng-template>
+                            </ng-template>
+                        </ng-template>
                     </ng-template>
                 </div>
             </div>

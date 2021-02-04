@@ -10,7 +10,8 @@ import { StickerService } from 'src/app/core/services/sticker/sticker.service';
 export class StickerButtonComponent implements OnInit {
 
   @Input() public sendSticker: Sticker;
-  constructor(public stickerService: StickerService) { 
+  constructor(
+    private stickerService: StickerService) { 
   }
   public color: string; 
   public colorretornado: string;

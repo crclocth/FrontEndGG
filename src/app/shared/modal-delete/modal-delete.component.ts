@@ -11,8 +11,8 @@ export class ModalDeleteComponent implements OnInit {
 
   public opcion: string = '2';
   constructor(
-    public sectorService: SectorService,
-    public stickerService: StickerService
+    private sectorService: SectorService,
+    private stickerService: StickerService
   ) { }
 
   ngOnInit(): void {

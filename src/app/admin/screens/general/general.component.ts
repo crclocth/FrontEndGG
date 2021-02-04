@@ -16,9 +16,9 @@ export class GeneralComponent implements OnInit {
   sectorSelected: Sector;
 
   constructor(
-    public sectorServices: SectorService,
-    public subsetServices: SubsetService,
-    public stickerService: StickerService
+    private sectorServices: SectorService,
+    private subsetServices: SubsetService,
+    private stickerService: StickerService
   ) { 
     this.sectors = this.getSectors();
     this.sectorSelected = null;
