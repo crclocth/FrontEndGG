@@ -32,7 +32,7 @@ export class NodeCardComponent implements OnInit {
     this.sensors$ = this.sensorProvider.getAllUserNodeSensor(this.node._id);
     console.log(this.moment = moment().local().format("LT"));
     console.log(this.momentNode = this.setMoment());
-    this.saberColor();
+    //this.saberColor();
   }
 
   setMoment(): Moment{
@@ -46,7 +46,7 @@ export class NodeCardComponent implements OnInit {
     return momentAux;
   }
 
-  saberColor() {
+  /*saberColor() {
     if (this.moment > (this.momentNode + (4 * this.node?.ds))) {
       console.log('Inactive; gray');
     }
@@ -63,7 +63,7 @@ export class NodeCardComponent implements OnInit {
         }
       }
     }
-  }
+  }*/
 
   public getSensorType(type: string): string | null{
     switch (type) {
