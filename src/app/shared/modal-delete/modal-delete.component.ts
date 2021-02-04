@@ -18,7 +18,6 @@ export class ModalDeleteComponent implements OnInit {
 
 
   constructor(
-    private sectorService: SectorService,
     private stickerService: StickerService,
     private subsetService: SubsetService
   ) {}

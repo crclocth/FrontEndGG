@@ -20,7 +20,7 @@ export class SetComponent implements OnInit, OnChanges{
   public opcion: string;
   
   constructor(
-    public subsetService: SubsetService,
+    private subsetService: SubsetService,
     public stickerService: StickerService,
     private sectorService: SectorService,
   ) {

@@ -16,7 +16,7 @@ export class SubsetComponent implements OnInit {
   public opcion: string;
 
   constructor(
-    public subsetService: SubsetService
+    private subsetService: SubsetService
   ) {
     this.opcion = '2';
   }
