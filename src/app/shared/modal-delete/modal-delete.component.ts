@@ -19,7 +19,8 @@ export class ModalDeleteComponent implements OnInit {
 
   constructor(
     private stickerService: StickerService,
-    private subsetService: SubsetService
+    private subsetService: SubsetService,
+    private sectorService: SectorService
   ) {}
 
   ngOnInit(): void {
