@@ -19,4 +19,8 @@ export class NodeProviderService {
     return this.httpService.get<Node[]>('/node/unassigned/td');
   };
 
+  public getAllUserSectorNodes(sectorId: string): Observable<Node[]>{
+    return this.httpService.get<Node[]>('node/all/' + sectorId);
+  };
+
 }
