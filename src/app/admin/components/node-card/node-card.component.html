@@ -24,9 +24,9 @@
                             <div class="circulo mt-1" style="background-color: #FF0000; color: white;">{{sensors.length}}</div>
                         </ng-container>
                         <ng-template #elseTemplate3> <!-- (hora actual > (lastSync + 2*ds))? KPI yellow; KPI green 
-                            <ng-container *ngIf="(moment > (momentNode + (2*node?.ds))); else elseTemplate4"> <!-- WARNING ACTIVE
+                            <ng-container *ngIf="(moment > (momentNode + (2*node?.ds))); else elseTemplate4"> <!-- WARNING ACTIVE 
                                 <div class="circulo mt-1" style="background-color: #EEB72B; color: white;">{{sensors.length}}</div>
-                            </ng-container>-->
+                            </ng-container>
                             <ng-template #elseTemplate4> <!-- ACTIVE -->
                                 <ng-container *ngIf="node?.ds == 900; else elseTemplate5">
                                     <div class="circulo mt-1" style="background-color: #87FF10;">{{sensors.length}}</div>
@@ -34,8 +34,8 @@
                                 <ng-template #elseTemplate5>
                                     <div class="circulo mt-1" style="background-color: #87FF10;">{{sensors.length}}</div>
                                 </ng-template>
-                            </ng-template>
-                        <!--</ng-template>
+                            <!--</ng-template>
+                        </ng-template>
                     </ng-template>-->
                 </div>
             </div>
@@ -43,30 +43,16 @@
         <div id="flush-collapse{{node._id}}" class="accordion-collapse collapse" data-bs-parent="#acordion">
             <div class="accordion-body" data-bs-parent="#acordion" style="background-color: #9F9F9F;padding: 0.2rem;">
                 <div class="overflow-scroll">
+                    <ng-container *ngIf="node?.crop; else Template2" style="font-family: 'Raleway';">
+                        <p class="mt-2 mb-0 text-center" style="font-size: 15px;">{{'Cultivo asociado: '}}</p>
+                        <p class="mb-2 text-center" style="font-size: 14px;">{{node?.crop}}</p>
+                    </ng-container>
+                    <ng-template #Template2 style="font-family: 'Raleway';">
+                        <p class="mt-2 mb-0 text-center" style="font-size: 15px;">{{'Cultivo asociado: '}}</p>
+                        <p class="mb-2 text-center" style="font-size: 14px;">{{'Ningun cultivo asociado'}}</p>
+                    </ng-template>
                     <ul class="list-group list-group-flush"  *ngFor="let sensor of sensors">
-                        <div [ngSwitch]="sensor?.stat">
-                            <div *ngSwitchCase="2"> <!-- WARNING MIN  -->
-                                <li class="list-group-item mt-1" style="background-color: #EEB72B;">{{getSensorType(sensor?.type)}}</li>
-                            </div>
-                            <div *ngSwitchCase="3"> <!-- WARNING MAX -->
-                                <li class="list-group-item mt-1" style="background-color: #EEB72B;">{{getSensorType(sensor?.type)}}</li>
-                            </div>
-                            <div *ngSwitchCase="4"> <!-- OPTIMUM -->
-                                <li class="list-group-item mt-1" style="background-color: #5DAF1C;">{{getSensorType(sensor?.type)}}</li>
-                            </div>
-                            <div *ngSwitchCase="5"> <!-- OK-->
-                                <li class="list-group-item mt-1" style="background-color: #5DAF1C;">{{getSensorType(sensor?.type)}}</li>
-                            </div>
-                            <div *ngSwitchCase="0"> <!-- CRITICAL MIN-->
-                                <li class="list-group-item mt-1" style="background-color: #FF0000;">{{getSensorType(sensor?.type)}}</li>
-                            </div>
-                            <div *ngSwitchCase="1"> <!-- CRITICAL MAX-->
-                                <li class="list-group-item mt-1" style="background-color: #FF0000;">{{getSensorType(sensor?.type)}}</li>
-                            </div>
-                            <div *ngSwitchCase="-1"> <!-- INACTIVE -->
-                                <li class="list-group-item mt-1" style="background-color: #07425E;">{{getSensorType(sensor?.type)}}</li>
-                            </div>
-                        </div>
+                        <app-sensor-card [sensor]="sensor" [sectorId]="node?.sectorId"></app-sensor-card>
                     </ul>
                 </div>
             </div>
