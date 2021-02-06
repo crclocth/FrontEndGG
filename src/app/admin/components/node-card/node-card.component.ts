@@ -31,11 +31,11 @@ export class NodeCardComponent implements OnInit {
   ngOnInit(): void {
     this.sensors$ = this.sensorProvider.getAllUserNodeSensor(this.node._id);
     console.log(this.moment = moment().local().format("LT"));
-    console.log(this.momentNode = this.setMoment());
+    //console.log(this.momentNode = this.setMoment());
     //this.saberColor();
   }
 
-  setMoment(): Moment{
+  /*setMoment(): Moment{ //AREGLAR FUNCION (RECLAMA AL PASAR LOS TIEMPOS)
     let momentAux = moment().set({
       'year': this.node.lastSync.getFullYear(),
       'month': this.node.lastSync.getMonth(),
@@ -44,9 +44,9 @@ export class NodeCardComponent implements OnInit {
       'minute': this.node.lastSync.getMinutes(),
     })
     return momentAux;
-  }
+  }*/
 
-  /*saberColor() {
+/*saberColor() {
     if (this.moment > (this.momentNode + (4 * this.node?.ds))) {
       console.log('Inactive; gray');
     }
@@ -64,66 +64,5 @@ export class NodeCardComponent implements OnInit {
       }
     }
   }*/
-
-  public getSensorType(type: string): string | null{
-    switch (type) {
-      case 'temperature':
-        return 'Temperatura del Aire';
-
-      case 'humidity':
-        return 'Humedad del Aire';
-
-      case 'pressure':
-        return 'Presión del Aire';
-
-      case ('pondTemperature'):
-        return 'Temperatura de Pozo';
-      
-              case ('pondtemperature'):
-                return 'Temperatura de Pozo';
-
-      case ('waterTemperature'):
-        return 'Temperatura del Agua';
-      
-              case ('watertemperature'):
-                return 'Temperatura del Agua';
-
-      case ('soilTemperature'):
-        return 'Temperatura de Suelo';
-      
-              case ('soiltemperature'):
-                return 'Temperatura de Suelo';
-
-      case ('soilHumidity'):
-        return 'Humedad de Suelo';
-
-              case ('soilhumidity'):
-                return 'Humedad de Suelo';
-
-      case ('waterLevel'):
-        return 'Nivel de Estanque';
-
-              case ('waterlevel'):
-                return 'Nivel de Estanque';
-
-      case 'current':
-        return 'Corriente Eléctrica';
-
-      case ('waterflow'):
-        return 'Caudal Agua';
-
-              case ('waterFlow'):
-                return 'Caudal Agua';
-
-      case ('airflow'):
-        return 'Caudal Viento';
-
-              case ('airFlow'):
-                return 'Caudal Viento';
-
-      default:
-        return 'Tipo no definido';
-    }
-  }
 
 }
