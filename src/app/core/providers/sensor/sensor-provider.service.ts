@@ -10,6 +10,10 @@ export class SensorProviderService {
 
   constructor(private httpService: HttpService) { }
 
+  public getAllUserSensors(): Observable<Sensor[]>{
+    return this.httpService.get<Sensor[]>('sensor/all');
+  };
+  
   public getAllUserNodeSensor(nodeId: string): Observable<Sensor[]> {
     return this.httpService.get<Sensor[]>('/sensor/all/' + nodeId);
   };

@@ -18,6 +18,7 @@ import { FreeNodesComponent } from './screens/freeNodes/free-nodes.component';
 import { DeleteCardComponent } from './components/delete-card/delete-card.component';
 import { SensorCardComponent } from './components/sensor-card/sensor-card.component';
 import { SensorCardItemComponent } from './components/sensor-card-item/sensor-card-item.component';
+import { SectorProviderService } from '../core/providers/sector/sector-provider.service';
 
 const Components = [
   AdminComponent, GeneralComponent,
@@ -39,7 +40,8 @@ const Components = [
   ],
   providers: [
     NodeProviderService,
-    SensorProviderService
+    SensorProviderService,
+    SectorProviderService
   ],
   exports: [...Components]
 })
