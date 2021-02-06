@@ -1,0 +1,62 @@
+<div [ngSwitch]="sensor?.stat">
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header mt-1" id="flush-heading{{sensor._id}}">
+                <div *ngSwitchCase="2"> <!-- WARNING MIN  -->
+                    <li style="background-color: #EEB72B;">
+                        <a class="accordion-button collapsed text-white warnin" style="text-decoration: none; text-decoration-color: none;" type="button" data-bs-toggle="collapse" href="#flush-collapse{{sensor._id}}" aria-expanded="false" aria-controls="flush-collapseOne">
+                            {{getSensorType(sensor?.type)}}
+                        </a>
+                    </li>
+                </div>
+                <div *ngSwitchCase="3"> <!-- WARNING MAX -->
+                    <li style="background-color: #EEB72B;">
+                        <a class="accordion-button collapsed text-white warnin" style="text-decoration: none; text-decoration-color: none;" type="button" data-bs-toggle="collapse" href="#flush-collapse{{sensor._id}}" aria-expanded="false" aria-controls="flush-collapseOne">
+                            {{getSensorType(sensor?.type)}}
+                        </a>
+                    </li>
+                </div>
+                <div *ngSwitchCase="4"> <!-- OPTIMUM -->
+                    <li style="background-color: #5DAF1C;">
+                        <a class="accordion-button collapsed text-white check" style="text-decoration: none; text-decoration-color: none;" type="button" data-bs-toggle="collapse" href="#flush-collapse{{sensor._id}}" aria-expanded="false" aria-controls="flush-collapseOne">
+                            {{getSensorType(sensor?.type)}}
+                        </a>
+                    </li>
+                </div>
+                <div *ngSwitchCase="5"> <!-- OK -->
+                    <li style="background-color: #5DAF1C;">
+                        <a class="accordion-button collapsed text-white check" style="text-decoration: none; text-decoration-color: none;" type="button" data-bs-toggle="collapse" href="#flush-collapse{{sensor._id}}" aria-expanded="false" aria-controls="flush-collapseOne">
+                            {{getSensorType(sensor?.type)}}
+                        </a>
+                    </li>
+                </div>
+                <div *ngSwitchCase="0"> <!-- CRITICAL MIN -->
+                    <li style="background-color: #FF0000;">
+                        <a class="accordion-button collapsed text-white danyer" style="text-decoration: none; text-decoration-color: none;" type="button" data-bs-toggle="collapse" href="#flush-collapse{{sensor._id}}" aria-expanded="false" aria-controls="flush-collapseOne">
+                            {{getSensorType(sensor?.type)}}
+                        </a>
+                    </li>
+                </div>
+                <div *ngSwitchCase="1"> <!-- CRITICAL MAX -->
+                    <li style="background-color: #FF0000;">
+                        <a class="accordion-button collapsed text-white danyer" style="text-decoration: none; text-decoration-color: none;" type="button" data-bs-toggle="collapse" href="#flush-collapse{{sensor._id}}" aria-expanded="false" aria-controls="flush-collapseOne">
+                            {{getSensorType(sensor?.type)}}
+                        </a>
+                    </li>
+                </div>
+                <div *ngSwitchCase="-1"> <!-- INACTIVE -->
+                    <li style="background-color: #07425E;">
+                        <a class="accordion-button collapsed text-white not" style="text-decoration: none; text-decoration-color: none;" type="button" data-bs-toggle="collapse" href="#flush-collapse{{sensor._id}}" aria-expanded="false" aria-controls="flush-collapseOne">
+                            {{getSensorType(sensor?.type)}}
+                        </a>
+                    </li>
+                </div>
+                <div id="flush-collapse{{sensor._id}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body bg-dark" style="font-size: 17px;">
+                        <app-sensor-card-item [sensor]="sensor" [sectorId]="sectorId"></app-sensor-card-item>
+                    </div>
+                </div>
+            </h2>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="mt-2 mb-2 text-center justify-content-center">
+    <ng-container *ngIf="sensor?.greenhouse; else elseTemplate2">
+        <p class="mb-0">{{'Invernadero asociado: '}}</p>
+        <p>{{sensor.greenhouse}}</p>
+    </ng-container>
+    <ng-template #elseTemplate2>
+       <p class="mb-0">{{'Invernadero asociado: '}}</p>
+       <p>{{'Ningun invernadero asociado'}}</p>
+    </ng-template>
+    <!------------------------------------------------->
+    <ng-container *ngIf="sectorId; else elseTemplate3">
+         <p class="mb-0">{{'Sector asociado: '}}</p>
+         <p>{{sectorId}}</p>
+    </ng-container>
+    <ng-template #elseTemplate3>
+        <p class="mb-0">{{'Sector asociado: '}}</p>
+        <p>{{'Ningun sector asociado'}}</p>
+   </ng-template>
+</div>
